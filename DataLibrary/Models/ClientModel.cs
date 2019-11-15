@@ -8,12 +8,12 @@ namespace DataLibrary.Models
 {
     class ClientModel
     {
-        int ClientId { get; set; }
-        string UserName { get; set; }
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        string Location { get; set; }
-        string PhoneNumber { get; set; }
-        string Status { get; set; }
+        public int ClientId { get; set; }
+        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Location { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Status { get; set; }
     }
 }

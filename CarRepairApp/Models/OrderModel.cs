@@ -7,14 +7,14 @@ namespace CarRepairApp.Models
 {
     public class OrderModel
     {
-        int ClientId { get; set; }
-        int StoreId { get; set; }
-        int EmployeeId { get; set; }
-        DateTime OrderTime { get; set; }
-        string OrderType { get; set; }
-        string OrderSpecifications { get; set; }
-        string Description { get; set; }
-        string Location { get; set; }
-        string Status { get; set; }
+        public int ClientId { get; set; }
+        public int StoreId { get; set; }
+        public int EmployeeId { get; set; }
+        public DateTime OrderTime { get; set; }
+        public string OrderType { get; set; }
+        public string OrderSpecifications { get; set; }
+        public string Description { get; set; }
+        public string Location { get; set; }
+        public string Status { get; set; }
     }
 }

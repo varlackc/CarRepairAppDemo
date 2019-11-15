@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
-    class PartModel
+    public class PartModel
     {
-        int PartId { get; set; }
-        string PartName { get; set; }
-        string PartDescription { get; set; }
-        string PartNumber { get; set; }
-        string PartSupplier { get; set; }
-        decimal PartCost { get; set; }
-        decimal PartPrice { get; set; }
+        public int PartId { get; set; }
+        public string PartName { get; set; }
+        public string PartDescription { get; set; }
+        public string PartNumber { get; set; }
+        public string PartSupplier { get; set; }
+        public decimal PartCost { get; set; }
+        public decimal PartPrice { get; set; }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
-    class ServiceModel
+    public class ServiceModel
     {
-        int ServiceId { get; set; }
-        string ServiceName { get; set; }
-        string ServiceDescription { get; set; }
-        DateTime ServiceDate { get; set; }
-        string Status { get; set; }
+        public int ServiceId { get; set; }
+        public string ServiceName { get; set; }
+        public string ServiceDescription { get; set; }
+        public DateTime ServiceDate { get; set; }
+        public string Status { get; set; }
     }
 }

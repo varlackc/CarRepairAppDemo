@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
-    class OrderLineModel
+    public class OrderLineModel
     {
-        int OrderLineId { get; set; }
-        int OrderId { get; set; }
-        int PartId { get; set; }
-        int ServiceId { get; set; }
-        int LineNo { get; set; }
-        string LineDescription { get; set; }
-        int ServiceQty { get; set; }
-        int PartQty { get; set; }
-        string Status { get; set; }
-        string OrderNotes { get; set; }
+        public int OrderLineId { get; set; }
+        public int OrderId { get; set; }
+        public int PartId { get; set; }
+        public int ServiceId { get; set; }
+        public int LineNo { get; set; }
+        public string LineDescription { get; set; }
+        public int ServiceQty { get; set; }
+        public int PartQty { get; set; }
+        public string Status { get; set; }
+        public string OrderNotes { get; set; }
     }
 }

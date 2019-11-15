@@ -7,10 +7,10 @@ namespace CarRepairApp.Models
 {
     public class StoreModel
     {
-        int StoreId { get; set; }
-        string StoreName { get; set; }
-        string StoreAddress { get; set; }
-        string PhoneNumber { get; set; }
-        string HoursOfOperation { get; set; }
+        public int StoreId { get; set; }
+        public string StoreName { get; set; }
+        public string StoreAddress { get; set; }
+        public string PhoneNumber { get; set; }
+        public string HoursOfOperation { get; set; }
     }
 }
