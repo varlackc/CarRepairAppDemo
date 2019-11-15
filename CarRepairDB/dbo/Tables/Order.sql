@@ -9,5 +9,8 @@
     [Specifications] VARCHAR(250) NULL, 
     [Description] VARCHAR(250) NULL, 
     [Location] VARCHAR(250) NULL, 
-    [Status] VARCHAR(50) NULL
+    [Status] VARCHAR(50) NULL, 
+    CONSTRAINT [FK_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [Client]([ClientId]), 
+    CONSTRAINT [FK_StoreId] FOREIGN KEY ([StoreId]) REFERENCES [Store]([StoreId]), 
+    CONSTRAINT [FK_EmployeeId] FOREIGN KEY ([EmployeeId]) REFERENCES [Employee]([EmployeeId])
 )

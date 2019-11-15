@@ -9,5 +9,8 @@
     [ServiceQty] INT NOT NULL DEFAULT 0, 
     [PartQty] INT NOT NULL DEFAULT 0, 
     [Status] VARCHAR(50) NULL, 
-    [OrderNotes] VARCHAR(250) NULL
+    [OrderNotes] VARCHAR(250) NULL, 
+    CONSTRAINT [FK_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Order]([OrderId]), 
+    CONSTRAINT [FK_PartId] FOREIGN KEY ([PartId]) REFERENCES [Part]([PartId]), 
+    CONSTRAINT [FK_ServiceId] FOREIGN KEY ([ServiceId]) REFERENCES [Service]([ServiceId])
 )
