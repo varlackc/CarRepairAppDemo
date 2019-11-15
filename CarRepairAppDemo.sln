@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRepairApp", "CarRepairApp\CarRepairApp.csproj", "{932BFB8A-9DD8-4B46-86CB-ED7A92B3AEDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{25169185-0A02-41D5-B492-37D9486BE85B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CarRepairDB", "CarRepairDB\CarRepairDB.sqlproj", "{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{932BFB8A-9DD8-4B46-86CB-ED7A92B3AEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{932BFB8A-9DD8-4B46-86CB-ED7A92B3AEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{932BFB8A-9DD8-4B46-86CB-ED7A92B3AEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25169185-0A02-41D5-B492-37D9486BE85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25169185-0A02-41D5-B492-37D9486BE85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25169185-0A02-41D5-B492-37D9486BE85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25169185-0A02-41D5-B492-37D9486BE85B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67B0FE4-74FB-4E69-B812-82EA6CDB1569}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
