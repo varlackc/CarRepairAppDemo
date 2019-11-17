@@ -35,7 +35,7 @@ namespace DataLibrary.BusinessLogic
             // load the data access to call the employee data
             return SqlDataAccess.LoadData<EmployeeModel>(sql);
         }
-        public static List<EmployeeModel> LoadOneEmployee(int id)
+        public static EmployeeModel LoadOneEmployee(int id)
         {
 
             //create SQL Query
