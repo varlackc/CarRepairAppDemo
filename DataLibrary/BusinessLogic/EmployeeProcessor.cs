@@ -1,10 +1,6 @@
-﻿using DataLibrary.Models;
-using DataLibrary.DataAccess;
-using System;
+﻿using DataLibrary.DataAccess;
+using DataLibrary.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLibrary.BusinessLogic
 {
@@ -22,14 +18,31 @@ namespace DataLibrary.BusinessLogic
                 Location = location,
                 PhoneNumber = phoneNumber,
                 Status = status
-                //EmailAddress = emailAddress
-
             };
 
-            string sql = @"insert into db.Employee (EmployeeId, UserName, FirstName, LastName, Location, PhoneNumber, Status)
-                            values (@EmployeeId, @UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
+            string sql = @"insert into db.Employee (UserName, FirstName, LastName, Location, PhoneNumber, Status)
+                            values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
+        }
+
+        public static List<EmployeeModel> LoadEmployee()
+        {
+            //create SQL Query
+            string sql = @"SELECT * 
+                           FROM dbo.[Employee];";
+
+            // load the data access to call the employee data
+            return SqlDataAccess.LoadData<EmployeeModel>(sql);
+        }
+        public static List<EmployeeModel> LoadOneEmployee(int id)
+        {
+
+            //create SQL Query
+            string sql = @"SELECT * 
+                           FROM dbo.[Employee]
+                           WHERE Id = @id;";
+            return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
         }
     }
 }

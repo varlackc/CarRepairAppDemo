@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="Publish Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Order.sql" />
@@ -70,5 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="CarRepairDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish Profiles\CarRepairDB.publish.xml" />
   </ItemGroup>
 </Project>
