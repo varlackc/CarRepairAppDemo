@@ -45,11 +45,12 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
         }
 
-        public static EmployeeModel DeleteEmployee(int id)
+        public static void DeleteEmployee(int id)
         {
             //Create SQL Query
             string sql = @"DELETE FROM dbo.[Employee]
                            WHERE Id = @id";
+            return SqlDataAccess.DeleteData(sql, id);
         }
     }
 }
