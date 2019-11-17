@@ -47,10 +47,12 @@ namespace DataLibrary.BusinessLogic
 
         public static void DeleteEmployee(int id)
         {
-            //Create SQL Query
-            string sql = @"DELETE FROM dbo.[Employee]
-                           WHERE Id = @id";
-            return SqlDataAccess.DeleteData(sql, id);
+
+            //create the sql command
+            string sql = @"DELETE FROM dbo.[Employee] WHERE Id = @id";
+
+            //call the sql data access to delete the User entry
+            SqlDataAccess.DeleteData(sql, id);
         }
     }
 }
