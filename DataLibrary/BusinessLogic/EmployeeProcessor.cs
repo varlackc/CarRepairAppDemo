@@ -45,6 +45,7 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
         }
 
+        //Delete Employee Method
         public static void DeleteEmployee(int id)
         {
 
