@@ -26,6 +26,7 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.SaveData(sql, data);
         }
 
+        // read employee data
         public static List<EmployeeModel> LoadEmployee()
         {
             //create SQL Query
