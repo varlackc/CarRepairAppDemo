@@ -6,6 +6,7 @@ namespace DataLibrary.BusinessLogic
 {
     public static class EmployeeProcessor
     {
+        // Create New Employee
         public static int CreateEmployee(int employeeId, string userName, string firstName, string lastName,
                                         string location, string phoneNumber, string status)
         {
