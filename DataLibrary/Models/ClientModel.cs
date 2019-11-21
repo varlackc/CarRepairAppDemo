@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
+    // Client Model
     class ClientModel
     {
         public int ClientId { get; set; }
