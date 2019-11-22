@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Models
 {
+    // Employee model
     public class EmployeeModel
     {
         public int EmployeeId { get; set; }
