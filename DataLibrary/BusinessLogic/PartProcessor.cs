@@ -10,5 +10,11 @@ namespace DataLibrary.BusinessLogic
 {
     class PartProcessor
     {
+        //create new part
+        public static int CreatePart()
+        {
+
+        }
+
     }
 }
