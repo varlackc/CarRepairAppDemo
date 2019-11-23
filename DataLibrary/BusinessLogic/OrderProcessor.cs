@@ -27,6 +27,9 @@ namespace DataLibrary.BusinessLogic
                 Location = location, 
                 Status = status
             };
+            string sql = @"insert into dbo.[Order] (ClientId, StoreId, EmployeeId, OrderTime, OrderType, 
+                                                    OrderSpecifications, Description, Location, Status)";
+            return SqlDataAccess.SaveData(sql, data);
         }
     }
 }
