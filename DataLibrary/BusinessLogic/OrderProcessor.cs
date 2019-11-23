@@ -8,5 +8,10 @@ namespace DataLibrary.BusinessLogic
 {
     class OrderProcessor
     {
+        //Create new Order
+        public static int CreateOrder()
+        {
+
+        }
     }
 }
