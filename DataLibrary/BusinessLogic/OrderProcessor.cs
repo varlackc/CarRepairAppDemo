@@ -37,5 +37,11 @@ namespace DataLibrary.BusinessLogic
         {
 
         }
+
+        //Delete Order
+        public static void DeleteOrder(int id)
+        {
+
+        }
     }
 }
