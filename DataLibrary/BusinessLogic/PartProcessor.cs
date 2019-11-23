@@ -16,5 +16,10 @@ namespace DataLibrary.BusinessLogic
 
         }
 
+        //Read Part Data
+        public static List<PartModel>()
+       {
+
+       }
     }
 }
