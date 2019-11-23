@@ -31,5 +31,11 @@ namespace DataLibrary.BusinessLogic
                                                     OrderSpecifications, Description, Location, Status)";
             return SqlDataAccess.SaveData(sql, data);
         }
+
+        // Read Order
+        public static List<OrderModel> LoadOrder()
+        {
+
+        }
     }
 }
