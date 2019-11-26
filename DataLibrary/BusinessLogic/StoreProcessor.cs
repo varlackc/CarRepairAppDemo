@@ -8,6 +8,7 @@ using DataLibrary.Models;
 
 namespace DataLibrary.BusinessLogic
 {
+    // Store Processor
     class StoreProcessor
     {
     }
