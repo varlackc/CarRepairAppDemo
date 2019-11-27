@@ -8,7 +8,7 @@ using DataLibrary.Models;
 
 namespace DataLibrary.BusinessLogic
 {
-    class ClientProcessor
+    public static class ClientProcessor
     {
         //Create New Client
         public static int CreateClient(int clientId, string userName, string firstName, string lastName, 

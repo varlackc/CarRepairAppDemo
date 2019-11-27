@@ -8,7 +8,7 @@ using DataLibrary.Models;
 
 namespace DataLibrary.BusinessLogic
 {
-    class OrderLineProcessor
+    public static class OrderLineProcessor
     {
         //Create New Order Line 
         public static int CreateOrderLine(int orderLineId, int orderID, int partId, int serviceId, int lineNo, 

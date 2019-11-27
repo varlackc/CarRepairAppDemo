@@ -9,7 +9,7 @@ using DataLibrary.Models;
 namespace DataLibrary.BusinessLogic
 {
     // Store Processor
-    class StoreProcessor
+    public static class StoreProcessor
     {
 
     }
