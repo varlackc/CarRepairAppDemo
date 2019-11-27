@@ -33,9 +33,24 @@ namespace DataLibrary.BusinessLogic
         }
 
         // Read Order
-        public static List<OrderModel> LoadOrder()
+        public static List<OrderModel> LoadOrder(int clientId, int storeId, int employeeId, DateTime orderTime,
+                                    string orderType, string orderSpecifications, string description,
+                                    string location, string status)
         {
+            OrderModel data = new OrderModel
+            {
+                ClientId = clientId,
+                StoreId = storeId,
+                EmployeeId = employeeId,
+                OrderTime = orderTime,
+                OrderType = orderType,
+                OrderSpecifications = orderSpecifications,
+                Description = description,
+                Location = location,
+                Status = status
+            };
 
+            string sql = @"
         }
 
         //Delete Order
