@@ -11,5 +11,6 @@ namespace DataLibrary.BusinessLogic
     // Store Processor
     class StoreProcessor
     {
+
     }
 }
