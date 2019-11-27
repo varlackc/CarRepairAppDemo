@@ -35,17 +35,21 @@ namespace DataLibrary.BusinessLogic
         // Read Order
         public static List<OrderModel> LoadOrder(int id)
         {
+            //create SQL Query
+            string sql = @"SELECT *
+                           FROM dbo.[Order];";
 
-            string sql = @"DELETE FROM dbo.[Order] WHERE OrderId = @id";
-
-            //Call the sql data access to delete the User entry
-            SqlDataAccess.DeleteData(sql, id);
+            return SqlDataAccess.LoadData<OrderModel>(sql);
         }
 
         //Delete Order
         public static void DeleteOrder(int id)
         {
+            //create the sql command
+            string sql = @"DELETE FROM dbo.[Order] WHERE OrderId = @id";
 
+            //Call the sql data access to delete the User entry
+            SqlDataAccess.DeleteData(sql, id);
         }
     }
 }
