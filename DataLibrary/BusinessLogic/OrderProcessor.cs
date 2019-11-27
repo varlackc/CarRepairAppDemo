@@ -33,24 +33,13 @@ namespace DataLibrary.BusinessLogic
         }
 
         // Read Order
-        public static List<OrderModel> LoadOrder(int clientId, int storeId, int employeeId, DateTime orderTime,
-                                    string orderType, string orderSpecifications, string description,
-                                    string location, string status)
+        public static List<OrderModel> LoadOrder(int id)
         {
-            OrderModel data = new OrderModel
-            {
-                ClientId = clientId,
-                StoreId = storeId,
-                EmployeeId = employeeId,
-                OrderTime = orderTime,
-                OrderType = orderType,
-                OrderSpecifications = orderSpecifications,
-                Description = description,
-                Location = location,
-                Status = status
-            };
 
-            string sql = @"
+            string sql = @"DELETE FROM dbo.[Order] WHERE OrderId = @id";
+
+            //Call the sql data access to delete the User entry
+            SqlDataAccess.DeleteData(sql, id);
         }
 
         //Delete Order
