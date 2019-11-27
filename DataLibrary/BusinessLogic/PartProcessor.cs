@@ -28,20 +28,25 @@ namespace DataLibrary.BusinessLogic
             string sql = @"SELECT *
                            FROM dbo.[Part];";
 
-            return SqlDataAccess.LoadData<PartModel>(sql);
+            return SqlDataAccess.SaveData(sql, data);
         }
 
         //Read Part Data
         public static List<PartModel>LoadPart()
        {
 
-       }
+            //create SQL Query
+            string sql = @"SELECT *
+                           FROM dbo.[Part];";
+
+            return SqlDataAccess.LoadData<PartModel>(sql);
+        }
 
         //Delete Order
         public static void DeletePart(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Order] WHERE OrderId = @id";
+            string sql = @"DELETE FROM dbo.[Part] WHERE PartId = @id";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
