@@ -45,7 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\ClientProcessor.cs" />
     <Compile Include="BusinessLogic\EmployeeProcessor.cs" />
+    <Compile Include="BusinessLogic\OrderLineProcessor.cs" />
+    <Compile Include="BusinessLogic\OrderProcessor.cs" />
+    <Compile Include="BusinessLogic\PartProcessor.cs" />
+    <Compile Include="BusinessLogic\ServiceProcessor.cs" />
+    <Compile Include="BusinessLogic\StoreProcessor.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
