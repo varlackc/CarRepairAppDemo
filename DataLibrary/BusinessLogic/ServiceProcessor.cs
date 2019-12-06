@@ -25,41 +25,42 @@ namespace DataLibrary.BusinessLogic
                 Status = status
             };
 
-            string sql = @"Insert into dbo.[Store](StoreId, StoreName, StoreAddress, PhoneNumber, HoursOfOperation) *
-                           Values (@StoreId, @StoreName, @StoreAddress, @PhoneNumber, @HoursOfOperation);";
+            string sql = @"Insert into dbo.[Service](ServiceId, ServiceName, ServiceDescription, ServiceDate, 
+                                                     Status)
+                           Values (@ServiceId, @ServiceName, @ServiceDescription, @ServiceDate, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
 
         //Read Part Data
-        public static List<PartModel> LoadService()
+        public static List<ServiceModel> LoadService()
         {
 
             //create SQL Query
             string sql = @"SELECT *
-                           FROM dbo.[Part];";
+                           FROM dbo.[Service];";
 
-            return SqlDataAccess.LoadData<PartModel>(sql);
+            return SqlDataAccess.LoadData<ServiceModel>(sql);
         }
 
         //Update Store Data
-        public static void UpdateService(int storeId, string storeName, string storeAddress, string phoneNumber,
-                                     string hoursOfOperation)
+        public static void UpdateService(int serviceId, string serviceName, string serviceDescription, DateTime serviceDate,
+                                      string status)
         {
-            PartModel data = new PartModel
+            ServiceModel data = new ServiceModel
             {
-                StoreId = sotreId,
-                StoreName = storeName,
-                StoreAddress = storeAddress,
-                PhoneNumber = phoneNumber,
-                HoursOfOperation = hoursOfOperation
+                ServiceId = serviceId,
+                ServiceName = serviceName,
+                ServiceDescription = serviceDescription,
+                ServiceDate = serviceDate,
+                Status = status
             };
 
             //create SQL Query
-            string sql = @"Update dbo.[Part]
-                           SET StoreId = @StoreId, StoreName = @StoreName, StoreAddress = @StoreAddress, 
-                               PhoneNumber = @PhoneNumber, HoursOfOperation = @HoursOfOperation
-                           WHERE StoreId = @StoreId;";
+            string sql = @"Update dbo.[Service]
+                           SET ServiceId = @ServiceId, ServiceName = @ServiceName, 
+                        ServiceDescription = @ServiceDescription, ServiceDate = @ServiceDate,Status = @Status
+                           WHERE ServiceId = @ServiceId;";
 
             SqlDataAccess.UpdateData(sql, data);
         }
@@ -69,7 +70,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeleteService(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Store] WHERE StoreId = @id";
+            string sql = @"DELETE FROM dbo.[Service] WHERE ServiceId = @id";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
