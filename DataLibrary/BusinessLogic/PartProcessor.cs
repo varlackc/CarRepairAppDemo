@@ -25,8 +25,8 @@ namespace DataLibrary.BusinessLogic
                 PartPrice = partPrice
             };
 
-            string sql = @"SELECT *
-                           FROM dbo.[Part];";
+            string sql = @"Insert into dbo.[Part] (PartId, PartName, PartDescription, PartNumber, PartSupplier, PartCost, PartPrice)
+                           Values (@PartId, @PartName, @PartDescription, @PartNumber, @PartSupplier, @PartCost, @PartPrice);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
