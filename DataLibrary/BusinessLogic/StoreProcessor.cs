@@ -12,7 +12,7 @@ namespace DataLibrary.BusinessLogic
     public static class StoreProcessor
     {
         /*
-         //create new part
+         //create new Store
         public static int CreatePart(int partId, string partName, string partDescription, string partNumber, 
                                      string partSupplier, decimal partCost, decimal partPrice)
         {
