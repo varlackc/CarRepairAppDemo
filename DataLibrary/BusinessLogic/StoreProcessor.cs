@@ -13,22 +13,20 @@ namespace DataLibrary.BusinessLogic
     {
         /*
          //create new Store
-        public static int CreatePart(int partId, string partName, string partDescription, string partNumber, 
-                                     string partSupplier, decimal partCost, decimal partPrice)
+        public static int CreateStore(int storeId, string storeName, string storeAddress, string phoneNumber,
+                                      string hoursOfOperation)
         {
-            PartModel data = new PartModel
+            StoreModel data = new StoreModel
             {
-                PartId = partId,
-                PartName = partName,
-                PartDescription = partDescription,
-                PartNumber = partName,
-                PartSupplier = partSupplier,
-                PartCost = partCost,
-                PartPrice = partPrice
+                StoreId = storeId,
+                StoreName = storeName,
+                StoreAddress = storeAddress,
+                PhoneNumber = phoneNumber,
+                HoursOfOperation = hoursOfOperation
             };
 
             string sql = @"SELECT *
-                           FROM dbo.[Part];";
+                           FROM dbo.[Store];";
 
             return SqlDataAccess.SaveData(sql, data);
         }
