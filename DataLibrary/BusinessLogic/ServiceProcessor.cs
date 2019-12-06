@@ -13,16 +13,16 @@ namespace DataLibrary.BusinessLogic
     {
         //create new Service
 
-        public static int CreateService(int storeId, string storeName, string storeAddress, string phoneNumber,
-                                      string hoursOfOperation)
+        public static int CreateService(int serviceId, string serviceName, string serviceDescription, DateTime serviceDate,
+                                      string status)
         {
-            StoreModel data = new StoreModel
+            ServiceModel data = new ServiceModel
             {
-                StoreId = storeId,
-                StoreName = storeName,
-                StoreAddress = storeAddress,
-                PhoneNumber = phoneNumber,
-                HoursOfOperation = hoursOfOperation
+                ServiceId = serviceId,
+                ServiceName = serviceName,
+                ServiceDescription = serviceDescription,
+                ServiceDate = serviceDate,
+                Status = status
             };
 
             string sql = @"Insert into dbo.[Store](StoreId, StoreName, StoreAddress, PhoneNumber, HoursOfOperation) *
