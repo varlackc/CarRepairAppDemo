@@ -11,7 +11,6 @@ namespace DataLibrary.BusinessLogic
     // Store Processor
     public static class StoreProcessor
     {
-        /*
          //create new Store
         public static int CreateStore(int storeId, string storeName, string storeAddress, string phoneNumber,
                                       string hoursOfOperation)
@@ -42,15 +41,37 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<PartModel>(sql);
         }
 
+        //Update Store Data
+        public static void UpdateStore(int storeId, string storeName, string storeAddress, string phoneNumber,
+                                     string hoursOfOperation)
+        {
+            PartModel data = new PartModel
+            {
+                StoreId = sotreId,
+                StoreName = storeName,
+                StoreAddress = storeAddress,
+                PhoneNumber = phoneNumber,
+                HoursOfOperation = hoursOfOperation
+            };
+
+            //create SQL Query
+            string sql = @"Update dbo.[Part]
+                           SET StoreId = @StoreId, StoreName = @StoreName, StoreAddress = @StoreAddress, 
+                               PhoneNumber = @PhoneNumber, HoursOfOperation = @HoursOfOperation
+                           WHERE StoreId = @StoreId;";
+
+            SqlDataAccess.UpdateData(sql, data);
+        }
+
+
         //Delete Order
-        public static void DeletePart(int id)
+        public static void DeleteStore(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Part] WHERE PartId = @id";
+            string sql = @"DELETE FROM dbo.[Store] WHERE StoreId = @id";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
         }
-         */
     }
 }
