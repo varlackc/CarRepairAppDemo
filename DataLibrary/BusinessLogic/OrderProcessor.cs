@@ -62,10 +62,12 @@ namespace DataLibrary.BusinessLogic
             };
 
             //create SQL Query
-            string sql = @"Update dbo.[Part]
-                           SET PartName = @PartName, PartDescription = @PartDescription, PartNumber = @PartNumber, 
-                               PartSupplier = @PartSupplier, PartCost = @PartCost, PartPrice = @PartPrice
-                           WHERE PartId = @PartId;";
+            string sql = @"Update dbo.[Order]
+                           SET StoreId = @StoreId, EmployeeId = @EmployeeId, 
+                               OrderTime = @OrderTime, OrderType = @OrderType, 
+                               OrderSpecifications = @OrderSpecifications, Description = @Description
+                               Location = @Location, Status = @Status
+                           WHERE ClientId = @ClientId;";
 
             SqlDataAccess.UpdateData(sql, data);
         }
