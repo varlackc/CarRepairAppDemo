@@ -52,30 +52,33 @@ namespace DataLibrary.BusinessLogic
 
 
         //Update Order Data
-        public static void UpdateOrderLine(int clientId, int storeId, int employeeId, DateTime orderTime,
-                                    string orderType, string orderSpecifications, string description,
-                                    string location, string status)
+        public static void UpdateOrderLine(int orderLineId, int orderID, int partId, int serviceId, int lineNo,
+                                            string lineDescription, int serviceQty, int partQty, string status,
+                                            string orderNotes)
         {
             OrderLineModel data = new OrderLineModel
             {
-                ClientId = clientId,
-                StoreId = storeId,
-                EmployeeId = employeeId,
-                OrderTime = orderTime,
-                OrderType = orderType,
-                OrderSpecifications = orderSpecifications,
-                Description = description,
-                Location = location,
-                Status = status
+                OrderLineId = orderLineId,
+                OrderId = orderID,
+                PartId = partId,
+                ServiceId = serviceId,
+                LineNo = lineNo,
+                LineDescription = lineDescription,
+                ServiceQty = serviceQty,
+                PartQty = partQty,
+                Status = status,
+                OrderNotes = orderNotes
             };
+
 
             //create SQL Query
             string sql = @"Update dbo.[Order]
-                           SET StoreId = @StoreId, EmployeeId = @EmployeeId, 
-                               OrderTime = @OrderTime, OrderType = @OrderType, 
-                               OrderSpecifications = @OrderSpecifications, Description = @Description
+                           SET  OrderId = @OrderId, PartId = @PartId, 
+                               ServiceId = @ServiceId, LineNo = @LineNo, LineDescription = @LineDescription, 
+                               ServiceQty = @ServiceQty, PartQty = @PartQty, Status = @Status, 
+                               OrderNotes = @OrderNotes
                                Location = @Location, Status = @Status
-                           WHERE ClientId = @ClientId;";
+                           WHERE OrderLineId = @OrderLineId;";
 
             SqlDataAccess.UpdateData(sql, data);
         }
