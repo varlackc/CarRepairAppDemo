@@ -48,15 +48,17 @@ namespace DataLibrary.BusinessLogic
                                     string orderType, string orderSpecifications, string description,
                                     string location, string status)
         {
-            PartModel data = new PartModel
+            OrderModel data = new OrderModel
             {
-                PartId = partId,
-                PartName = partName,
-                PartDescription = partDescription,
-                PartNumber = partName,
-                PartSupplier = partSupplier,
-                PartCost = partCost,
-                PartPrice = partPrice
+                ClientId = clientId,
+                StoreId = storeId,
+                EmployeeId = employeeId,
+                OrderTime = orderTime,
+                OrderType = orderType,
+                OrderSpecifications = orderSpecifications,
+                Description = description,
+                Location = location, 
+                Status = status
             };
 
             //create SQL Query
