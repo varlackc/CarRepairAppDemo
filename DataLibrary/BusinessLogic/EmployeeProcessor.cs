@@ -47,6 +47,33 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
         }
 
+
+        //Update Employee Data
+        public static void UpdateEmployee(int employeeId, string userName, string firstName, string lastName,
+                                        string location, string phoneNumber, string status)
+        {
+
+            EmployeeModel data = new EmployeeModel
+            {
+                EmployeeId = employeeId,
+                UserName = userName,
+                FirstName = firstName,
+                LastName = lastName,
+                Location = location,
+                PhoneNumber = phoneNumber,
+                Status = status
+            };
+
+            //create SQL Query
+            string sql = @"Update dbo.[Order]
+                           SET UserName = @UserName, FirstName = @FirstName, LastName = @LastName, 
+                               Location = @Location, PhoneNumber = @PhoneNumber, Status = @Status
+                           WHERE EmployeeId = @EmployeeId;";
+
+            SqlDataAccess.UpdateData(sql, data);
+        }
+
+
         //Delete Employee Method
         public static void DeleteEmployee(int id)
         {
