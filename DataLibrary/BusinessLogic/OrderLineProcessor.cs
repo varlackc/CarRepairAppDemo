@@ -50,6 +50,37 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadOne<OrderLineModel>(sql, id);
         }
 
+
+        //Update Order Data
+        public static void UpdateOrderLine(int clientId, int storeId, int employeeId, DateTime orderTime,
+                                    string orderType, string orderSpecifications, string description,
+                                    string location, string status)
+        {
+            OrderLineModel data = new OrderLineModel
+            {
+                ClientId = clientId,
+                StoreId = storeId,
+                EmployeeId = employeeId,
+                OrderTime = orderTime,
+                OrderType = orderType,
+                OrderSpecifications = orderSpecifications,
+                Description = description,
+                Location = location,
+                Status = status
+            };
+
+            //create SQL Query
+            string sql = @"Update dbo.[Order]
+                           SET StoreId = @StoreId, EmployeeId = @EmployeeId, 
+                               OrderTime = @OrderTime, OrderType = @OrderType, 
+                               OrderSpecifications = @OrderSpecifications, Description = @Description
+                               Location = @Location, Status = @Status
+                           WHERE ClientId = @ClientId;";
+
+            SqlDataAccess.UpdateData(sql, data);
+        }
+
+
         //Delete OrderLine Method
         public static void DeleteOrderLine(int id)
         {
