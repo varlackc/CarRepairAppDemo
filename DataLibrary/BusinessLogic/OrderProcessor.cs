@@ -42,6 +42,32 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<OrderModel>(sql);
         }
 
+
+        //Update Order Data
+        public static void UpdateOrder(int clientId, int storeId, int employeeId, DateTime orderTime,
+                                    string orderType, string orderSpecifications, string description,
+                                    string location, string status)
+        {
+            PartModel data = new PartModel
+            {
+                PartId = partId,
+                PartName = partName,
+                PartDescription = partDescription,
+                PartNumber = partName,
+                PartSupplier = partSupplier,
+                PartCost = partCost,
+                PartPrice = partPrice
+            };
+
+            //create SQL Query
+            string sql = @"Update dbo.[Part]
+                           SET PartName = @PartName, PartDescription = @PartDescription, PartNumber = @PartNumber, 
+                               PartSupplier = @PartSupplier, PartCost = @PartCost, PartPrice = @PartPrice
+                           WHERE PartId = @PartId;";
+
+            SqlDataAccess.UpdateData(sql, data);
+        }
+
         //Delete Order
         public static void DeleteOrder(int id)
         {
