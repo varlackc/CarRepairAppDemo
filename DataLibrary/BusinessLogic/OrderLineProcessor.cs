@@ -88,7 +88,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeleteOrderLine(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[OrderLine] WHERE Id = @id";
+            string sql = @"DELETE FROM dbo.[OrderLine] WHERE OrderLineId = @id";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
