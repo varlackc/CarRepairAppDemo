@@ -71,7 +71,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeletePart(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Part] WHERE PartId = @id";
+            string sql = @"DELETE FROM dbo.[Part] WHERE PartId = @id;";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
