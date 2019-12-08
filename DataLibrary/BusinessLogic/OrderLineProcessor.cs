@@ -28,8 +28,10 @@ namespace DataLibrary.BusinessLogic
                 OrderNotes = orderNotes
             };
 
-            string sql = @"insert into dbo.OrderLine (OrderId, PartId, ServiceId, LineNo, LineDescription, 
-                                                    ServiceQty, PartQty, Status, OrderNotes)";
+            string sql = @"insert into dbo.[OrderLine] (OrderId, PartId, ServiceId, LineNo, LineDescription, 
+                                                    ServiceQty, PartQty, Status, OrderNotes)
+                            values (@OrderId, @PartId, @ServiceId, @LineNo, @LineDescription, 
+                                                    @ServiceQty, @PartQty, @Status, @OrderNotes);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
@@ -46,7 +48,7 @@ namespace DataLibrary.BusinessLogic
             //create SQL Query
             string sql = @"SELECT *
                             FROM dbo.[OrderLine]
-                            WHERE Id = @id;";
+                            WHERE OrderLineId = @id;";
             return SqlDataAccess.LoadOne<OrderLineModel>(sql, id);
         }
 
@@ -72,7 +74,7 @@ namespace DataLibrary.BusinessLogic
 
 
             //create SQL Query
-            string sql = @"Update dbo.[Order]
+            string sql = @"Update dbo.[OrderLine]
                            SET  OrderId = @OrderId, PartId = @PartId, 
                                ServiceId = @ServiceId, LineNo = @LineNo, LineDescription = @LineDescription, 
                                ServiceQty = @ServiceQty, PartQty = @PartQty, Status = @Status, 
