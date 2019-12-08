@@ -28,7 +28,7 @@ namespace DataLibrary.BusinessLogic
                 Status = status
             };
             string sql = @"insert into dbo.[Order] (ClientId, StoreId, EmployeeId, OrderTime, OrderType, 
-                                                    OrderSpecifications, Description, Location, Status)";
+                                                    OrderSpecifications, Description, Location, Status);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
@@ -76,7 +76,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeleteOrder(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Order] WHERE OrderId = @id";
+            string sql = @"DELETE FROM dbo.[Order] WHERE OrderId = @id;";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
