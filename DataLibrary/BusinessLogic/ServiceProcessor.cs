@@ -70,7 +70,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeleteService(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Service] WHERE ServiceId = @id";
+            string sql = @"DELETE FROM dbo.[Service] WHERE ServiceId = @id;";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
