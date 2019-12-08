@@ -25,7 +25,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             string sql = @"insert into dbo.Client (UserName, FirstName, LastName, Location, PhoneNumber, Status)
-                            varlues (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
+                            values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
@@ -72,7 +72,7 @@ namespace DataLibrary.BusinessLogic
             string sql = @"Update dbo.[Client]
                            SET UserName = @UserName, FirstName = @FirstName, LastName = @LastName, 
                                Location = @Location, PhoneNumber = @PhoneNumber, Status = @Status
-                           WHERE EmployeeId = @EmployeeId;";
+                           WHERE ClientId = @ClientId;";
 
             SqlDataAccess.UpdateData(sql, data);
         }
@@ -82,7 +82,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeleteClient(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Employee] WHERE Id = @id";
+            string sql = @"DELETE FROM dbo.[Client] WHERE ClientId = @id";
 
             //call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
