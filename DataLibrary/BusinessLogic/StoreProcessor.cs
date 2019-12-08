@@ -45,9 +45,9 @@ namespace DataLibrary.BusinessLogic
         public static void UpdateStore(int storeId, string storeName, string storeAddress, string phoneNumber,
                                      string hoursOfOperation)
         {
-            PartModel data = new PartModel
+            StoreModel data = new StoreModel
             {
-                StoreId = sotreId,
+                StoreId = storeId,
                 StoreName = storeName,
                 StoreAddress = storeAddress,
                 PhoneNumber = phoneNumber,
@@ -55,7 +55,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             //create SQL Query
-            string sql = @"Update dbo.[Part]
+            string sql = @"Update dbo.[Store]
                            SET StoreId = @StoreId, StoreName = @StoreName, StoreAddress = @StoreAddress, 
                                PhoneNumber = @PhoneNumber, HoursOfOperation = @HoursOfOperation
                            WHERE StoreId = @StoreId;";
@@ -68,7 +68,7 @@ namespace DataLibrary.BusinessLogic
         public static void DeleteStore(int id)
         {
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Store] WHERE StoreId = @id";
+            string sql = @"DELETE FROM dbo.[Store] WHERE StoreId = @id;";
 
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
