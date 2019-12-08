@@ -43,7 +43,7 @@ namespace DataLibrary.BusinessLogic
             //create SQL Query
             string sql = @"SELECT * 
                            FROM dbo.[Employee]
-                           WHERE Id = @id;";
+                           WHERE EmployeeId = @id;";
             return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
         }
 
@@ -79,7 +79,7 @@ namespace DataLibrary.BusinessLogic
         {
 
             //create the sql command
-            string sql = @"DELETE FROM dbo.[Employee] WHERE Id = @id";
+            string sql = @"DELETE FROM dbo.[Employee] WHERE EmployeeId = @id";
 
             //call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
