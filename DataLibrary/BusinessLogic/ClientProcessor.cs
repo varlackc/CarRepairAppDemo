@@ -24,7 +24,7 @@ namespace DataLibrary.BusinessLogic
                 Status = status
             };
 
-            string sql = @"insert into dbo.Client (UserName, FirstName, LastName, Location, PhoneNumber, Status)
+            string sql = @"insert into dbo.[Client] (UserName, FirstName, LastName, Location, PhoneNumber, Status)
                             values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
@@ -45,7 +45,7 @@ namespace DataLibrary.BusinessLogic
             //Create SQL Query
             string sql = @"SELECT *
                             FROM dbo.[Client]
-                            WHERE Id = @id;";
+                            WHERE ClientId = @id;";
 
             //load the data access to call the client data
             return SqlDataAccess.LoadData<ClientModel>(sql);
