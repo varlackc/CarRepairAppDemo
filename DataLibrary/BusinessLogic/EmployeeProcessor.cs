@@ -21,7 +21,7 @@ namespace DataLibrary.BusinessLogic
                 Status = status
             };
 
-            string sql = @"insert into db.Employee (UserName, FirstName, LastName, Location, PhoneNumber, Status)
+            string sql = @"insert into db.[Employee] (UserName, FirstName, LastName, Location, PhoneNumber, Status)
                             values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
@@ -65,7 +65,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             //create SQL Query
-            string sql = @"Update dbo.[Order]
+            string sql = @"Update dbo.[Employee]
                            SET UserName = @UserName, FirstName = @FirstName, LastName = @LastName, 
                                Location = @Location, PhoneNumber = @PhoneNumber, Status = @Status
                            WHERE EmployeeId = @EmployeeId;";

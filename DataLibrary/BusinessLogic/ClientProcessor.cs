@@ -25,7 +25,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             string sql = @"insert into dbo.Client (UserName, FirstName, LastName, Location, PhoneNumber, Status)
-                            varlues (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status)";
+                            varlues (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
@@ -50,6 +50,33 @@ namespace DataLibrary.BusinessLogic
             //load the data access to call the client data
             return SqlDataAccess.LoadData<ClientModel>(sql);
         }
+
+
+        //Update Client Data
+        public static void UpdateClient(int clientId, string userName, string firstName, string lastName,
+                                        string location, string phoneNumber, string status)
+        {
+
+            ClientModel data = new ClientModel
+            {
+                ClientId = clientId,
+                UserName = userName,
+                FirstName = firstName,
+                LastName = lastName,
+                Location = location,
+                PhoneNumber = phoneNumber,
+                Status = status
+            };
+
+            //create SQL Query
+            string sql = @"Update dbo.[Client]
+                           SET UserName = @UserName, FirstName = @FirstName, LastName = @LastName, 
+                               Location = @Location, PhoneNumber = @PhoneNumber, Status = @Status
+                           WHERE EmployeeId = @EmployeeId;";
+
+            SqlDataAccess.UpdateData(sql, data);
+        }
+
 
         //Delete Client Method
         public static void DeleteClient(int id)
