@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CarRepairApp.Controllers
 {
-    public class EmployeeController
+    public class EmployeeController : Controller
     {
     }
 }

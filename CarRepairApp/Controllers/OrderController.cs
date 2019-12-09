@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CarRepairApp.Controllers
 {
-    public class OrderController
+    public class OrderController : Controller
     {
     }
 }

@@ -8,7 +8,7 @@ using static DataLibrary.BusinessLogic.EmployeeProcessor;
 
 namespace CarRepairApp.Controllers
 {
-    public class ClientController
+    public class ClientController : Controller
     {
     }
 }
