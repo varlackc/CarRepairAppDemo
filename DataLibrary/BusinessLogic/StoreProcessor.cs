@@ -27,14 +27,14 @@ namespace DataLibrary.BusinessLogic
         }
 
         //Read Part Data
-        public static List<PartModel>LoadStore()
+        public static List<StoreModel>LoadStore()
        {
 
             //create SQL Query
             string sql = @"SELECT *
                            FROM dbo.[Store];";
 
-            return SqlDataAccess.LoadData<PartModel>(sql);
+            return SqlDataAccess.LoadData<StoreModel>(sql);
         }
 
         //Update Store Data
