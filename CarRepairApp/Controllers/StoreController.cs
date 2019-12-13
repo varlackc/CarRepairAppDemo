@@ -13,11 +13,11 @@ namespace CarRepairApp.Controllers
     {
         public ActionResult StoreList()
         {
-            var data = LoadUser(); //load the data
-            List<UserModel> users = new List<UserModel>(); //create a list of projects
+            var data = LoadStore(); //load the data
+            List<StoreModel> users = new List<StoreModel>(); //create a list of projects
             foreach (var row in data) // loop to organize the data in the projects list
             {
-                users.Add(new UserModel
+                users.Add(new StoreModel
                 {
                     Id = row.Id,
                     UserName = row.UserName,
