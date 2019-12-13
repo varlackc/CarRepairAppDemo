@@ -19,10 +19,11 @@ namespace CarRepairApp.Controllers
             {
                 users.Add(new StoreModel
                 {
-                    Id = row.Id,
-                    UserName = row.UserName,
-                    FirstName = row.FirstName,
-                    LastName = row.LastName
+                    StoreId = row.StoreId,
+                    StoreName = row.StoreName,
+                    StoreAddress = row.StoreAddress,
+                    PhoneNumber = row.PhoneNumber,
+                    HoursOfOperation = row.HoursOfOperation
                 });
             }
             return View(users);
