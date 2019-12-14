@@ -32,5 +32,25 @@ namespace CarRepairApp.Controllers
             }
             return View(users);
         }
+
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Employee";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(EmployeeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int recordsCreated = CreateEmployee(model.EmployeeId, model.UserName, model.FirstName, model.LastName, 
+                                                    model.Location, model.PhoneNumber, model.Status);
+                return RedirectToAction("EmployeeList");
+            }
+            ViewBag.Message = "Employee List";
+            return View();
+        }
+
     }
 }

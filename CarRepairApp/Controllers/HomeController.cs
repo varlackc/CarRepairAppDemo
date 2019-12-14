@@ -12,7 +12,7 @@ namespace CarRepairApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("EmployeeList", "Employee");
         }
 
         public ActionResult About()
