@@ -28,5 +28,12 @@ namespace CarRepairApp.Controllers
             }
             return View(users);
         }
+
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Store";
+            return View();
+        }
+
     }
 }
