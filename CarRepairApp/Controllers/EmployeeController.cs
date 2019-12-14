@@ -22,6 +22,7 @@ namespace CarRepairApp.Controllers
                 users.Add(new EmployeeModel
                 {
                     EmployeeId = row.EmployeeId, 
+                    UserName = row.UserName,
                     FirstName = row.FirstName,
                     LastName = row.LastName,
                     Location = row.Location,
