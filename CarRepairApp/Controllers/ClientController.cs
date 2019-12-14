@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataLibrary;
-using static DataLibrary.BusinessLogic.EmployeeProcessor;
+using static DataLibrary.BusinessLogic.ClientProcessor;
 
 namespace CarRepairApp.Controllers
 {
