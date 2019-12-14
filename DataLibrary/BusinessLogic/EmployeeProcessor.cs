@@ -21,7 +21,7 @@ namespace DataLibrary.BusinessLogic
                 Status = status
             };
 
-            string sql = @"insert into db.[Employee] (UserName, FirstName, LastName, Location, PhoneNumber, Status)
+            string sql = @"insert into dbo.[Employee] (UserName, FirstName, LastName, Location, PhoneNumber, Status)
                             values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
 
             return SqlDataAccess.SaveData(sql, data);
