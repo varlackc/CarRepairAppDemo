@@ -258,6 +258,7 @@
     <Content Include="Views\Employee\EmployeeDetails.cshtml" />
     <Content Include="Views\Store\StoreList.cshtml" />
     <Content Include="Views\Store\Create.cshtml" />
+    <Content Include="Views\Store\DeleteStoreByID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
