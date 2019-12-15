@@ -35,5 +35,24 @@ namespace CarRepairApp.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create(StoreModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int recordsCreated = CreateStore(model.StoreId, model.StoreName, model.StoreAddress, model.PhoneNumber,
+                                                    model.HoursOfOperation);
+                return RedirectToAction("StoreList");
+            }
+            ViewBag.Message = "Store List";
+            return View();
+        }
+
+        public ActionResult DeleteStoreByID(int Id)
+        {
+            DeleteStore(Id);
+            return RedirectToAction("StoreList");
+        }
+
     }
 }
