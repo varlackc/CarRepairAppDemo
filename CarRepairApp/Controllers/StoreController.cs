@@ -48,6 +48,32 @@ namespace CarRepairApp.Controllers
             return View();
         }
 
+        public ActionResult Update(int id)
+        {
+            var resultModel = LoadOneStore(id); //get the results from the databaase
+            EmployeeModel employeeModel = new EmployeeModel(); //convert the results in a way that the view can understand
+            employeeModel.EmployeeId = resultModel.EmployeeId;
+            employeeModel.UserName = resultModel.UserName;
+            employeeModel.FirstName = resultModel.FirstName;
+            employeeModel.LastName = resultModel.LastName;
+            employeeModel.Location = resultModel.Location;
+            employeeModel.PhoneNumber = resultModel.PhoneNumber;
+            employeeModel.Status = resultModel.Status;
+            return View(employeeModel);
+        }
+
+        [HttpPost]
+        public ActionResult Update(EmployeeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UpdateEmployee(model.EmployeeId, model.UserName, model.FirstName, model.LastName,
+                    model.Location, model.PhoneNumber, model.Status);
+            }
+            return RedirectToAction("EmployeeList");
+        }
+
+
         public ActionResult DeleteStoreByID(int Id)
         {
             DeleteStore(Id);
