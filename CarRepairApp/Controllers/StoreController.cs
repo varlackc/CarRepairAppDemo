@@ -51,15 +51,13 @@ namespace CarRepairApp.Controllers
         public ActionResult Update(int id)
         {
             var resultModel = LoadOneStore(id); //get the results from the databaase
-            EmployeeModel employeeModel = new EmployeeModel(); //convert the results in a way that the view can understand
-            employeeModel.EmployeeId = resultModel.EmployeeId;
-            employeeModel.UserName = resultModel.UserName;
-            employeeModel.FirstName = resultModel.FirstName;
-            employeeModel.LastName = resultModel.LastName;
-            employeeModel.Location = resultModel.Location;
-            employeeModel.PhoneNumber = resultModel.PhoneNumber;
-            employeeModel.Status = resultModel.Status;
-            return View(employeeModel);
+            StoreModel storeModel = new StoreModel(); //convert the results in a way that the view can understand
+            storeModel.StoreId = resultModel.StoreId;
+            storeModel.StoreName = resultModel.StoreName;
+            storeModel.StoreAddress = resultModel.StoreAddress;
+            storeModel.PhoneNumber = resultModel.PhoneNumber;
+            storeModel.HoursOfOperation = resultModel.HoursOfOperation;
+            return View(storeModel);
         }
 
         [HttpPost]
