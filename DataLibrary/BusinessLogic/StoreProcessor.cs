@@ -20,8 +20,8 @@ namespace DataLibrary.BusinessLogic
                 HoursOfOperation = hoursOfOperation
             };
 
-            string sql = @"Insert into dbo.[Store](StoreId, StoreName, StoreAddress, PhoneNumber, HoursOfOperation) *
-                           Values (@StoreId, @StoreName, @StoreAddress, @PhoneNumber, @HoursOfOperation);";
+            string sql = @"Insert into dbo.[Store]( StoreName, StoreAddress, PhoneNumber, HoursOfOperation)
+                           Values ( @StoreName, @StoreAddress, @PhoneNumber, @HoursOfOperation);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
