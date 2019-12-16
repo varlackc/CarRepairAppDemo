@@ -61,14 +61,14 @@ namespace CarRepairApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(EmployeeModel model)
+        public ActionResult Update(StoreModel model)
         {
             if (ModelState.IsValid)
             {
-                UpdateEmployee(model.EmployeeId, model.UserName, model.FirstName, model.LastName,
-                    model.Location, model.PhoneNumber, model.Status);
+                UpdateStore(model.StoreId, model.StoreName, model.StoreAddress, model.PhoneNumber,
+                    model.HoursOfOperation);
             }
-            return RedirectToAction("EmployeeList");
+            return RedirectToAction("StoreList");
         }
 
 
