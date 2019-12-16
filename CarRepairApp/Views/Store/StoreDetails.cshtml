@@ -1,0 +1,58 @@
+﻿@model CarRepairApp.Models.StoreModel
+
+@{
+    ViewBag.Title = "StoreDetails";
+}
+
+<h2>StoreDetails</h2>
+
+<div>
+    <h4>StoreModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoreId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoreName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoreAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoursOfOperation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoursOfOperation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Update", new { id = Model.StoreId /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "StoreList")
+</p>
