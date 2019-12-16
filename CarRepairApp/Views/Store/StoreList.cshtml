@@ -45,7 +45,7 @@
                 @Html.DisplayFor(modelItem => item.HoursOfOperation)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Update", new { id = item.StoreId /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "DeleteStoreByID", new { id = item.StoreId /* id=item.PrimaryKey */ })
             </td>
