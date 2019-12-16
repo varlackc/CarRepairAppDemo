@@ -29,6 +29,19 @@ namespace CarRepairApp.Controllers
             return View(users);
         }
 
+        public ActionResult StoreDetails(int id)
+        {
+            var data = LoadOneStore(id);
+            StoreModel storeModel = new StoreModel(); //convert the results in a way that the view can understand
+            storeModel.StoreId = data.StoreId;
+            storeModel.StoreName = data.StoreName;
+            storeModel.StoreAddress = data.StoreAddress;
+            storeModel.PhoneNumber = data.PhoneNumber;
+            storeModel.HoursOfOperation = data.HoursOfOperation;
+            return View(storeModel);
+
+        }
+
         public ActionResult Create()
         {
             ViewBag.Message = "Store";
