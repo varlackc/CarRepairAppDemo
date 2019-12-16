@@ -37,6 +37,15 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<StoreModel>(sql);
         }
 
+        public static StoreModel LoadOneStore(int id)
+        {
+            // Create SQL Query
+            string sql = @"SELECT * 
+                           FROM dbo.[Store]
+                           WHERE StoreId = @id;";
+            return SqlDataAccess.LoadOne<StoreModel>(sql, id);
+        }
+
         //Update Store Data
         public static void UpdateStore(int storeId, string storeName, string storeAddress, string phoneNumber,
                                      string hoursOfOperation)
@@ -52,7 +61,7 @@ namespace DataLibrary.BusinessLogic
 
             //create SQL Query
             string sql = @"Update dbo.[Store]
-                           SET StoreId = @StoreId, StoreName = @StoreName, StoreAddress = @StoreAddress, 
+                           SET StoreName = @StoreName, StoreAddress = @StoreAddress, 
                                PhoneNumber = @PhoneNumber, HoursOfOperation = @HoursOfOperation
                            WHERE StoreId = @StoreId;";
 
