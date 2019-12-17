@@ -31,5 +31,22 @@ namespace CarRepairApp.Controllers
             }
             return View(users);
         }
+
+        public ActionResult ClientDetails(int id)
+        {
+            var data = LoadOneClient(id);
+            ClientModel clientModel = new ClientModel(); //convert the results in a way that the view can understand
+            clientModel.ClientId = data.ClientId;
+            clientModel.UserName = data.UserName;
+            clientModel.FirstName = data.FirstName;
+            clientModel.LastName = data.LastName;
+            clientModel.Location = data.Location;
+            clientModel.PhoneNumber = data.Location;
+            clientModel.Status = data.Status;
+
+            return View(clientModel);
+
+        }
+
     }
 }
