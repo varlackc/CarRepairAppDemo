@@ -263,6 +263,7 @@
     <Content Include="Views\Store\StoreDetails.cshtml" />
     <Content Include="Views\Client\ClientList.cshtml" />
     <Content Include="Views\Client\ClientDetails.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
