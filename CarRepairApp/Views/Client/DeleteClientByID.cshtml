@@ -1,11 +1,12 @@
 ﻿@model CarRepairApp.Models.ClientModel
 
 @{
-    ViewBag.Title = "ClientDetails";
+    ViewBag.Title = "DeleteClientByID";
 }
 
-<h2>ClientDetails</h2>
+<h2>DeleteClientByID</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>ClientModel</h4>
     <hr />
@@ -67,8 +68,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Update", new {id = Model.ClientId /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "ClientList")
-</p>

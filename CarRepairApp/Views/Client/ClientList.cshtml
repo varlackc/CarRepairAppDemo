@@ -57,9 +57,9 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Update", new { id = item.ClientId /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "ClientDetails", new {id = item.ClientId /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "DeleteClientByID", new { id = item.ClientId /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }

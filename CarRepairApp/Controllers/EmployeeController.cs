@@ -26,7 +26,7 @@ namespace CarRepairApp.Controllers
                     FirstName = row.FirstName,
                     LastName = row.LastName,
                     Location = row.Location,
-                    PhoneNumber = row.Location,
+                    PhoneNumber = row.PhoneNumber,
                     Status = row.Status
                 });
             }

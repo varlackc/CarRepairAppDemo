@@ -25,7 +25,7 @@ namespace CarRepairApp.Controllers
                     FirstName = row.FirstName,
                     LastName = row.LastName,
                     Location = row.Location,
-                    PhoneNumber = row.Location,
+                    PhoneNumber = row.PhoneNumber,
                     Status = row.Status
                 });
             }
@@ -41,7 +41,7 @@ namespace CarRepairApp.Controllers
             clientModel.FirstName = data.FirstName;
             clientModel.LastName = data.LastName;
             clientModel.Location = data.Location;
-            clientModel.PhoneNumber = data.Location;
+            clientModel.PhoneNumber = data.PhoneNumber;
             clientModel.Status = data.Status;
 
             return View(clientModel);
@@ -65,6 +65,39 @@ namespace CarRepairApp.Controllers
             }
             ViewBag.Message = "Client List";
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            var data = LoadOneClient(id); //get the results from the databaase
+            ClientModel clientModel = new ClientModel(); //convert the results in a way that the view can understand
+            clientModel.ClientId = data.ClientId;
+            clientModel.UserName = data.UserName;
+            clientModel.FirstName = data.FirstName;
+            clientModel.LastName = data.LastName;
+            clientModel.Location = data.Location;
+            clientModel.PhoneNumber = data.PhoneNumber;
+            clientModel.Status = data.Status;
+
+            return View(clientModel);
+        }
+
+        [HttpPost]
+        public ActionResult Update(ClientModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UpdateClient(model.ClientId, model.UserName, model.FirstName,
+                    model.LastName, model.Location, model.PhoneNumber, model.Status);
+            }
+            return RedirectToAction("ClientList");
+        }
+
+        public ActionResult DeleteClientByID(int Id)
+        {
+            DeleteClient(Id);
+            return RedirectToAction("ClientList");
         }
 
     }
