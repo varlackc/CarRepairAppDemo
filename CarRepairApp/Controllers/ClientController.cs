@@ -45,7 +45,26 @@ namespace CarRepairApp.Controllers
             clientModel.Status = data.Status;
 
             return View(clientModel);
+        }
 
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Client";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(ClientModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int recordsCreated = CreateClient(model.ClientId, model.UserName, model.FirstName, 
+                    model.LastName, model.Location, model.PhoneNumber, model.Status);
+
+                return RedirectToAction("ClientList");
+            }
+            ViewBag.Message = "Client List";
+            return View();
         }
 
     }
