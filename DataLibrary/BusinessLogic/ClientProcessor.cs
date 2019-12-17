@@ -36,7 +36,7 @@ namespace DataLibrary.BusinessLogic
             //load the data access to call the client data
             return SqlDataAccess.LoadData<ClientModel>(sql);
         }
-        public static List<ClientModel> LoadOneClient(int id)
+        public static ClientModel LoadOneClient(int id)
         {
             //Create SQL Query
             string sql = @"SELECT *
@@ -44,7 +44,7 @@ namespace DataLibrary.BusinessLogic
                             WHERE ClientId = @id;";
 
             //load the data access to call the client data
-            return SqlDataAccess.LoadData<ClientModel>(sql);
+            return SqlDataAccess.LoadOne<ClientModel>(sql, id);
         }
 
 
