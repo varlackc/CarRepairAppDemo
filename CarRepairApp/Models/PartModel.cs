@@ -13,6 +13,7 @@ namespace CarRepairApp.Models
         public string PartNumber { get; set; }
         public string PartSupplier { get; set; }
         public decimal PartCost { get; set; }
-        public decimal PartPrice { get; set; } 
+        public decimal PartPrice { get; set; }
+        public string PartManufacturer { get; set; }
     }
 }

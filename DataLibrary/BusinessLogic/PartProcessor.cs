@@ -8,21 +8,22 @@ namespace DataLibrary.BusinessLogic
     {
         //create new part
         public static int CreatePart(int partId, string partName, string partDescription, string partNumber, 
-                                     string partSupplier, decimal partCost, decimal partPrice)
+                                     string partSupplier, decimal partCost, decimal partPrice, string partManufacturer)
         {
             PartModel data = new PartModel
             {
                 PartId = partId,
                 PartName = partName,
                 PartDescription = partDescription,
-                PartNumber = partName,
+                PartNumber = partNumber,
                 PartSupplier = partSupplier,
                 PartCost = partCost,
-                PartPrice = partPrice
+                PartPrice = partPrice,
+                PartManufacturer = partManufacturer
             };
 
-            string sql = @"Insert into dbo.[Part] (PartId, PartName, PartDescription, PartNumber, PartSupplier, PartCost, PartPrice)
-                           Values (@PartId, @PartName, @PartDescription, @PartNumber, @PartSupplier, @PartCost, @PartPrice);";
+            string sql = @"Insert into dbo.[Part] (PartName, PartDescription, PartNumber, PartSupplier, PartCost, PartPrice, PartManufacturer)
+                           Values (@PartName, @PartDescription, @PartNumber, @PartSupplier, @PartCost, @PartPrice, PartManufacturer);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
@@ -51,23 +52,25 @@ namespace DataLibrary.BusinessLogic
 
         //Update Part Data
         public static void UpdatePart(int partId, string partName, string partDescription, string partNumber,
-                                     string partSupplier, decimal partCost, decimal partPrice)
+                                     string partSupplier, decimal partCost, decimal partPrice, string partManufacturer)
         {
             PartModel data = new PartModel
             {
                 PartId = partId,
                 PartName = partName,
                 PartDescription = partDescription,
-                PartNumber = partName,
+                PartNumber = partNumber, //Make sure that the field are matched and ordered properly
                 PartSupplier = partSupplier,
                 PartCost = partCost,
-                PartPrice = partPrice
+                PartPrice = partPrice,
+                PartManufacturer = partManufacturer
             };
 
             //create SQL Query
             string sql = @"Update dbo.[Part]
                            SET PartName = @PartName, PartDescription = @PartDescription, PartNumber = @PartNumber, 
-                               PartSupplier = @PartSupplier, PartCost = @PartCost, PartPrice = @PartPrice
+                               PartSupplier = @PartSupplier, PartCost = @PartCost, PartPrice = @PartPrice, 
+                               PartManufacturer = @PartManufacturer
                            WHERE PartId = @PartId;";
 
             SqlDataAccess.UpdateData(sql, data);

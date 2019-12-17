@@ -6,5 +6,6 @@
     [PartNumber] VARCHAR(100) NULL, 
     [PartSupplier] VARCHAR(100) NULL, 
     [PartCost] MONEY NULL, 
-    [PartPrice] MONEY NULL
+    [PartPrice] MONEY NULL, 
+    [PartManufacturer] VARCHAR(50) NULL
 )

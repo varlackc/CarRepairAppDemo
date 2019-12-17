@@ -1,0 +1,78 @@
+﻿@model CarRepairApp.Models.PartModel
+
+@{
+    ViewBag.Title = "PartDetails";
+}
+
+<h2>PartDetails</h2>
+
+<div>
+    <h4>PartModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartSupplier)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartManufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartSupplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Update", new { id = Model.PartId /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "PartList")
+</p>

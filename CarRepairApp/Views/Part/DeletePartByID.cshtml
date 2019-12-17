@@ -1,0 +1,89 @@
+﻿@model CarRepairApp.Models.PartModel
+
+@{
+    ViewBag.Title = "DeletePartByID";
+}
+
+<h2>DeletePartByID</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PartModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PartId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartSupplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartSupplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartManufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartManufacturer)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartPrice)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Part List", "PartList")
+        </div>
+    }
+</div>

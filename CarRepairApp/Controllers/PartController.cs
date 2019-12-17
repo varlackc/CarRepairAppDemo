@@ -26,13 +26,31 @@ namespace CarRepairApp.Controllers
                     PartDescription = row.PartDescription,
                     PartCost = row.PartCost,
                     PartPrice = row.PartPrice,
-                    PartSupplier = row.PartSupplier
+                    PartSupplier = row.PartSupplier,
+                    PartManufacturer = row.PartManufacturer
                     
                 });
             }
             return View(users);
         }
 
+        public ActionResult PartDetails(int id)
+        {
+            var data = LoadOnePart(id);
+            PartModel partModel = new PartModel(); //convert the results in a way that the view can understand
+
+            partModel.PartId = data.PartId;
+            partModel.PartName = data.PartName;
+            partModel.PartNumber = data.PartNumber;
+            partModel.PartDescription = data.PartDescription;
+            partModel.PartCost = data.PartCost;
+            partModel.PartPrice = data.PartPrice;
+            partModel.PartSupplier = data.PartSupplier;
+            partModel.PartManufacturer = data.PartManufacturer;
+
+            return View(partModel);
+
+        }
 
         public ActionResult Create()
         {
@@ -47,7 +65,7 @@ namespace CarRepairApp.Controllers
             { 
                 //Note: When calling a method, the order of the parameters is very important
                 int recordsCreated = CreatePart( model.PartId, model.PartName, model.PartDescription, 
-                    model.PartNumber, model.PartSupplier, model.PartCost, model.PartPrice);
+                    model.PartNumber, model.PartSupplier, model.PartCost, model.PartPrice, model.PartManufacturer);
 
                 return RedirectToAction("PartList");
             }
@@ -55,7 +73,7 @@ namespace CarRepairApp.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public ActionResult Update(int id)
         {
             var resultModel = LoadOnePart(id); //get the results from the databaase
@@ -68,6 +86,7 @@ namespace CarRepairApp.Controllers
             partModel.PartCost = resultModel.PartCost;
             partModel.PartPrice = resultModel.PartPrice;
             partModel.PartSupplier = resultModel.PartSupplier;
+            partModel.PartManufacturer = resultModel.PartManufacturer;
 
             return View(partModel);
         }
@@ -78,7 +97,7 @@ namespace CarRepairApp.Controllers
             if (ModelState.IsValid)
             {
                 UpdatePart(model.PartId, model.PartName, model.PartDescription,
-                    model.PartNumber, model.PartSupplier, model.PartCost, model.PartPrice);
+                    model.PartNumber, model.PartSupplier, model.PartCost, model.PartPrice, model.PartManufacturer);
             }
             return RedirectToAction("PartList");
         }

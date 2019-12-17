@@ -17,12 +17,18 @@
         <th>
             @Html.DisplayNameFor(model => model.PartDescription)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.PartNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PartSupplier)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PartManufacturer)
+        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.PartCost)
         </th>
@@ -34,38 +40,43 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartSupplier)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartCost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartPrice)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PartId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PartName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PartDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PartNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PartSupplier)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.PartManufacturer)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.PartCost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PartPrice)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Update", new { id = item.PartId /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "PartDetails", new { id = item.PartId /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "DeletePartByID", new { id = item.PartId /* id=item.PrimaryKey */ })
+    </td>
+</tr>
     }
 
 </table>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Part", "Create")
 </p>
