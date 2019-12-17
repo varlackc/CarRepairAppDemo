@@ -5,5 +5,6 @@
     [FirstName] VARCHAR(100) NULL, 
     [LastName] VARCHAR(100) NULL, 
     [Location] VARCHAR(250) NULL, 
-    [Status] VARCHAR(50) NULL
+    [Status] VARCHAR(50) NULL, 
+    [PhoneNumber] VARCHAR(50) NULL
 )

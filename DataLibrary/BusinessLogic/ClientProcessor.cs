@@ -10,7 +10,8 @@ namespace DataLibrary.BusinessLogic
         public static int CreateClient(int clientId, string userName, string firstName, string lastName, 
                                         string location, string phoneNumber, string status)
         {
-            ClientModel data = new ClientModel {
+            ClientModel data = new ClientModel
+            {
                 ClientId = clientId,
                 UserName = userName, 
                 FirstName = firstName, 
@@ -21,7 +22,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             string sql = @"insert into dbo.[Client] (UserName, FirstName, LastName, Location, PhoneNumber, Status)
-                            values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status);";
+                            values (@UserName, @FirstName, @LastName, @Location, @PhoneNumber, @Status)";
 
             return SqlDataAccess.SaveData(sql, data);
         }
