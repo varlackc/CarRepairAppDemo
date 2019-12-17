@@ -38,6 +38,17 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<PartModel>(sql);
         }
 
+        public static PartModel LoadOnePart(int id)
+        {
+
+            //create SQL Query
+            string sql = @"SELECT *
+                           FROM dbo.[Part]
+                           WHERE PartId = @id;";
+
+            return SqlDataAccess.LoadOne<PartModel>(sql, id);
+        }
+
         //Update Part Data
         public static void UpdatePart(int partId, string partName, string partDescription, string partNumber,
                                      string partSupplier, decimal partCost, decimal partPrice)

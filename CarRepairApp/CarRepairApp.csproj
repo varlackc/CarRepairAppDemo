@@ -266,6 +266,8 @@
     <Content Include="Views\Client\Create.cshtml" />
     <Content Include="Views\Client\Update.cshtml" />
     <Content Include="Views\Client\DeleteClientByID.cshtml" />
+    <Content Include="Views\Part\PartList.cshtml" />
+    <Content Include="Views\Part\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

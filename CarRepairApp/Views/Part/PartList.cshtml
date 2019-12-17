@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CarRepairApp.Models.PartModel>
+
+@{
+    ViewBag.Title = "PartList";
+}
+
+<h2>PartList</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PartId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartSupplier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartSupplier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
