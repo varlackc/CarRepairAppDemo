@@ -23,9 +23,9 @@ namespace DataLibrary.BusinessLogic
                 ServiceType = serviceType
             };
 
-            string sql = @"Insert into dbo.[Service](ServiceId, ServiceName, ServiceDescription, ServiceDate, 
+            string sql = @"Insert into dbo.[Service](ServiceName, ServiceDescription, ServiceDate, 
                                                      Status, ServiceType)
-                           Values (@ServiceId, @ServiceName, @ServiceDescription, @ServiceDate, @Status, 
+                           Values (@ServiceName, @ServiceDescription, @ServiceDate, @Status, 
                                     @ServiceType);";
 
             return SqlDataAccess.SaveData(sql, data);

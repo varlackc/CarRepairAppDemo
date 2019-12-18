@@ -45,5 +45,54 @@ namespace CarRepairApp.Controllers
 
         }
 
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Service";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(ServiceModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                int recordsCreated = CreateService(model.ServiceId, model.ServiceName, model.ServiceDescription, model.ServiceDate,
+                                                    model.Status, model.ServiceType);
+                return RedirectToAction("ServiceList");
+            }
+            ViewBag.Message = "Service List";
+            return View();
+        }
+
+        public ActionResult Update(int id)
+        {
+            var resultModel = LoadOneService(id); //get the results from the databaase
+            ServiceModel serviceModel = new ServiceModel(); //convert the results in a way that the view can understand
+            serviceModel.ServiceId = resultModel.ServiceId;
+            serviceModel.ServiceName = resultModel.ServiceName;
+            serviceModel.ServiceDescription = resultModel.ServiceDescription;
+            serviceModel.ServiceDate = resultModel.ServiceDate;
+            serviceModel.Status = resultModel.Status;
+            serviceModel.ServiceType = resultModel.ServiceType;
+            return View(serviceModel);
+        }
+
+        [HttpPost]
+        public ActionResult Update(ServiceModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UpdateService(model.ServiceId, model.ServiceName, model.ServiceDescription, model.ServiceDate,
+                                                    model.Status, model.ServiceType);
+            }
+            return RedirectToAction("ServiceList");
+        }
+
+        public ActionResult DeleteServiceByID(int Id)
+        {
+            DeleteService(Id);
+            return RedirectToAction("ServiceList");
+        }
+
     }
 }
