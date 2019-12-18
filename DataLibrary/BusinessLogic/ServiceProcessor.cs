@@ -42,6 +42,15 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<ServiceModel>(sql);
         }
 
+        public static ServiceModel LoadOneService(int id)
+        {
+            // Create SQL Query
+            string sql = @"SELECT * 
+                           FROM dbo.[Service]
+                           WHERE ServiceId = @id;";
+            return SqlDataAccess.LoadOne<ServiceModel>(sql, id);
+        }
+
         //Update Store Data
         public static void UpdateService(int serviceId, string serviceName, string serviceDescription, DateTime serviceDate,
                                       string status, string serviceType)
