@@ -6,11 +6,31 @@
 
 <h2>Update</h2>
 
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section Scripts {
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    <script>
+        $(document).ready(function (e) {
+
+            //this has solved the default behaviour issue
+            $("#ServiceDate").datepicker({
+                dateFormat: 'dd-mm-yy',//setup the date format optional
+                changeMonth: true, //change the month optional
+                changeYear: true//change the day optional
+            }).datepicker('setDate', '0');//zero means the current date
+
+        });
+    </script>
+}
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ServiceModel</h4>
         <hr />
@@ -75,6 +95,5 @@
     @Html.ActionLink("Back to List", "ServiceList")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@Scripts.Render("~/bundles/jqueryval")
+

@@ -18,6 +18,7 @@
             @Html.DisplayNameFor(model => model.ServiceDescription)
         </th>
         <th>
+            <!--Only Show the Date but not the time using the -->
             @Html.DisplayNameFor(model => model.ServiceDate)
         </th>
         <th>
@@ -52,7 +53,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Update", new { id = item.ServiceId  /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "ServiceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "SeviceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "DeleteServiceByID", new { id = item.ServiceId /* id=item.PrimaryKey */ })
             </td>
         </tr>

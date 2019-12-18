@@ -67,7 +67,7 @@ namespace DataLibrary.BusinessLogic
 
             //create SQL Query
             string sql = @"Update dbo.[Service]
-                           SET ServiceId = @ServiceId, ServiceName = @ServiceName, 
+                           SET ServiceName = @ServiceName, 
                         ServiceDescription = @ServiceDescription, ServiceDate = @ServiceDate,Status = @Status, 
                             ServiceType = @ServiceType
                            WHERE ServiceId = @ServiceId;";
