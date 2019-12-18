@@ -272,6 +272,7 @@
     <Content Include="Views\Part\PartDetails.cshtml" />
     <Content Include="Views\Part\Update.cshtml" />
     <Content Include="Views\Service\ServiceList.cshtml" />
+    <Content Include="Views\Service\SeviceDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
