@@ -29,5 +29,19 @@ namespace CarRepairApp.Controllers
             }
             return View(users);
         }
+
+        public ActionResult SeviceDetails(int id)
+        {
+            var data = LoadOneService(id);
+            StoreModel storeModel = new StoreModel(); //convert the results in a way that the view can understand
+            storeModel.StoreId = data.StoreId;
+            storeModel.StoreName = data.StoreName;
+            storeModel.StoreAddress = data.StoreAddress;
+            storeModel.PhoneNumber = data.PhoneNumber;
+            storeModel.HoursOfOperation = data.HoursOfOperation;
+            return View(storeModel);
+
+        }
+
     }
 }
