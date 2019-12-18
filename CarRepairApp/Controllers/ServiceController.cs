@@ -33,13 +33,15 @@ namespace CarRepairApp.Controllers
         public ActionResult SeviceDetails(int id)
         {
             var data = LoadOneService(id);
-            StoreModel storeModel = new StoreModel(); //convert the results in a way that the view can understand
-            storeModel.StoreId = data.StoreId;
-            storeModel.StoreName = data.StoreName;
-            storeModel.StoreAddress = data.StoreAddress;
-            storeModel.PhoneNumber = data.PhoneNumber;
-            storeModel.HoursOfOperation = data.HoursOfOperation;
-            return View(storeModel);
+            ServiceModel serviceModel = new ServiceModel(); //convert the results in a way that the view can understand
+            serviceModel.ServiceId = data.ServiceId;
+            serviceModel.ServiceName = data.ServiceName;
+            serviceModel.ServiceDescription = data.ServiceDescription;
+            serviceModel.ServiceDate = data.ServiceDate;
+            serviceModel.Status = data.Status;
+            serviceModel.ServiceType = data.ServiceType;
+
+            return View(serviceModel);
 
         }
 
