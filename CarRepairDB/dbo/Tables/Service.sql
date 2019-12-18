@@ -4,5 +4,6 @@
     [ServiceName] VARCHAR(100) NOT NULL, 
     [ServiceDescription] VARCHAR(250) NULL, 
     [ServiceDate] DATETIME2 NULL, 
-    [Status] VARCHAR(50) NULL
+    [Status] VARCHAR(50) NULL, 
+    [ServiceType] VARCHAR(50) NULL
 )

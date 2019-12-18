@@ -11,7 +11,7 @@ namespace DataLibrary.BusinessLogic
         //create new Service
 
         public static int CreateService(int serviceId, string serviceName, string serviceDescription, DateTime serviceDate,
-                                      string status)
+                                      string status, string serviceType)
         {
             ServiceModel data = new ServiceModel
             {
@@ -19,12 +19,14 @@ namespace DataLibrary.BusinessLogic
                 ServiceName = serviceName,
                 ServiceDescription = serviceDescription,
                 ServiceDate = serviceDate,
-                Status = status
+                Status = status,
+                ServiceType = serviceType
             };
 
             string sql = @"Insert into dbo.[Service](ServiceId, ServiceName, ServiceDescription, ServiceDate, 
-                                                     Status)
-                           Values (@ServiceId, @ServiceName, @ServiceDescription, @ServiceDate, @Status);";
+                                                     Status, ServiceType)
+                           Values (@ServiceId, @ServiceName, @ServiceDescription, @ServiceDate, @Status, 
+                                    @ServiceType);";
 
             return SqlDataAccess.SaveData(sql, data);
         }
@@ -42,7 +44,7 @@ namespace DataLibrary.BusinessLogic
 
         //Update Store Data
         public static void UpdateService(int serviceId, string serviceName, string serviceDescription, DateTime serviceDate,
-                                      string status)
+                                      string status, string serviceType)
         {
             ServiceModel data = new ServiceModel
             {
@@ -50,13 +52,15 @@ namespace DataLibrary.BusinessLogic
                 ServiceName = serviceName,
                 ServiceDescription = serviceDescription,
                 ServiceDate = serviceDate,
-                Status = status
+                Status = status,
+                ServiceType = serviceType
             };
 
             //create SQL Query
             string sql = @"Update dbo.[Service]
                            SET ServiceId = @ServiceId, ServiceName = @ServiceName, 
-                        ServiceDescription = @ServiceDescription, ServiceDate = @ServiceDate,Status = @Status
+                        ServiceDescription = @ServiceDescription, ServiceDate = @ServiceDate,Status = @Status, 
+                            ServiceType = @ServiceType
                            WHERE ServiceId = @ServiceId;";
 
             SqlDataAccess.UpdateData(sql, data);

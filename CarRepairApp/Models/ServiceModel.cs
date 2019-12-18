@@ -12,5 +12,6 @@ namespace CarRepairApp.Models
         public string ServiceDescription { get; set; }
         public DateTime ServiceDate { get; set; }
         public string Status { get; set; }
+        public string ServiceType { get; set; }
     }
 }

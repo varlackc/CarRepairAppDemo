@@ -23,7 +23,8 @@ namespace CarRepairApp.Controllers
                     ServiceName = row.ServiceName,
                     ServiceDescription = row.ServiceDescription,
                     ServiceDate = row.ServiceDate,
-                    Status = row.Status
+                    Status = row.Status, 
+                    ServiceType = row.ServiceType
                 });
             }
             return View(users);
