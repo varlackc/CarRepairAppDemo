@@ -23,7 +23,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             string sql = @"Insert into dbo.[Part] (PartName, PartDescription, PartNumber, PartSupplier, PartCost, PartPrice, PartManufacturer)
-                           Values (@PartName, @PartDescription, @PartNumber, @PartSupplier, @PartCost, @PartPrice, PartManufacturer);";
+                           Values (@PartName, @PartDescription, @PartNumber, @PartSupplier, @PartCost, @PartPrice, @PartManufacturer);";
 
             return SqlDataAccess.SaveData(sql, data);
         }

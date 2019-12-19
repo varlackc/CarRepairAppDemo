@@ -11,21 +11,30 @@ namespace CarRepairApp.Controllers
 {
     public class OrderController : Controller
     {
-        public ActionResult OrderList(int id)
+        public ActionResult OrderList()
         {
-            var data = LoadOrder(id); //load the data
-            List<OrderModel> users = new List<OrderModel>(); //create a list of projects
+            var data = LoadOrder(); //load the data
+            List<OrderModel> orders = new List<OrderModel>(); //create a list of projects
+            List<OrderLineModel> orderLines = new List<OrderLineModel>();
             foreach (var row in data) // loop to organize the data in the projects list
             {
-                users.Add(new OrderModel
+                orders.Add(new OrderModel
                 {
+                    OrderId = row.OrderId,
+                    ClientId = row.ClientId,
+                    StoreId = row.StoreId,
+                    EmployeeId = row.EmployeeId,
+                    OrderTime = row.OrderTime,
                     OrderType = row.OrderType,
                     OrderSpecifications = row.OrderSpecifications,
-                    OrderTime = row.OrderTime
-
+                    Description = row.Description,
+                    Location = row.Location,
+                    Status = row.Status,
+                    //List < OrderLineModel > OrderLine = new List<OrderLineModel>();
+                
                 });
             }
-            return View(users);
+            return View(orders);
         }
     }
 }

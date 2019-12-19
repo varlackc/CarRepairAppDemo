@@ -22,15 +22,18 @@ namespace DataLibrary.BusinessLogic
                 OrderSpecifications = orderSpecifications, 
                 Description = description, 
                 Location = location, 
-                Status = status
+                Status = status,
+                //OrderLine = List<OrderLineModel> 
             };
-            string sql = @"insert into dbo.[Order] (ClientId, StoreId, EmployeeId, OrderTime, OrderType, 
-                                                    OrderSpecifications, Description, Location, Status);";
+            string sql = @"INSERT INTO dbo.[Order] (ClientId, StoreId, EmployeeId, OrderTime, OrderType, 
+                                                    Specifications, [Description], [Location], [Status])
+                                        VALUES (@ClientId, @StoreId, @EmployeeId, @OrderTime, @OrderType, 
+                                                    @OrderSpecifications, @Description, @Location, @Status);";
             return SqlDataAccess.SaveData(sql, data);
         }
 
         // Read Order
-        public static List<OrderModel> LoadOrder(int id)
+        public static List<OrderModel> LoadOrder()
         {
             //create SQL Query
             string sql = @"SELECT *
@@ -39,6 +42,15 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<OrderModel>(sql);
         }
 
+        public static EmployeeModel LoadOneOrder(int id)
+        {
+
+            //create SQL Query
+            string sql = @"SELECT * 
+                           FROM dbo.[Order]
+                           WHERE OrderId = @id;";
+            return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
+        }
 
         //Update Order Data
         public static void UpdateOrder(int clientId, int storeId, int employeeId, DateTime orderTime,

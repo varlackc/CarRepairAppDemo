@@ -7,6 +7,7 @@ namespace CarRepairApp.Models
 {
     public class OrderModel
     {
+        public int OrderId { get; set; }
         public int ClientId { get; set; }
         public int StoreId { get; set; }
         public int EmployeeId { get; set; }
@@ -16,5 +17,6 @@ namespace CarRepairApp.Models
         public string Description { get; set; }
         public string Location { get; set; }
         public string Status { get; set; }
+        public IEnumerable<OrderLineModel> OrderLine { get; set; }
     }
 }
