@@ -34,6 +34,8 @@
 
     @foreach (var item in Model)
     {
+        using (Html.BeginForm("DeleteEmployeeByID", "Employee", new { id = item.EmployeeId /* id=item.PrimaryKey */ }))
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.EmployeeId)
@@ -59,14 +61,18 @@
             <td>
                 @Html.ActionLink("Edit", "Update", new { id = item.EmployeeId /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "EmployeeDetails", new { id = item.EmployeeId /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "DeleteEmployeeByID", new { id = item.EmployeeId /* id=item.PrimaryKey */ })
+                
+                <input class="btn btn-danger" type="submit" value="Delete"
+                       onclick="return confirm('Are you sure you want to delete record with ID = @item.EmployeeId Store: @item.FirstName @item.LastName');" />
+
             </td>
         </tr>
+        }
     }
 
 </table>
 
 
 <p>
-    @Html.ActionLink("Add New Employee", "Create")
+    @Html.ActionLink("Add New Employee", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>

@@ -40,6 +40,8 @@
 
     @foreach (var item in Model)
     {
+        using (Html.BeginForm("DeletePartByID", "Part", new { id = item.PartId /* id=item.PrimaryKey */ }))
+        {
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.PartId)
@@ -70,13 +72,16 @@
     <td>
         @Html.ActionLink("Edit", "Update", new { id = item.PartId /* id=item.PrimaryKey */ }) |
         @Html.ActionLink("Details", "PartDetails", new { id = item.PartId /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "DeletePartByID", new { id = item.PartId /* id=item.PrimaryKey */ })
+        
+        <input class="btn btn-danger" type="submit" value="Delete"
+               onclick="return confirm('Are you sure you want to delete record with ID = @item.PartId Part: @item.PartName');" />
     </td>
 </tr>
+        }
     }
 
 </table>
 
 <p>
-    @Html.ActionLink("Add New Part", "Create")
+    @Html.ActionLink("Add New Part", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>

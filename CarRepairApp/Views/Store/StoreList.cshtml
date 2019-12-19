@@ -28,6 +28,8 @@
 
     @foreach (var item in Model)
     {
+        using (Html.BeginForm("DeleteStoreByID", "Store", new { id = item.StoreId /* id=item.PrimaryKey */ }))
+        { 
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StoreId)
@@ -47,13 +49,16 @@
             <td>
                 @Html.ActionLink("Edit", "Update", new { id = item.StoreId /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "StoreDetails", new { id = item.StoreId /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "DeleteStoreByID", new { id = item.StoreId /* id=item.PrimaryKey */ })
+                
+                <input class="btn btn-danger" type="submit" value="Delete"
+                       onclick="return confirm('Are you sure you want to delete record with ID = @item.StoreId Store: @item.StoreName');" />
             </td>
         </tr>
+        }
     }
 
 </table>
 
 <p>
-    @Html.ActionLink("Add New Store", "Create")
+    @Html.ActionLink("Add New Store", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>

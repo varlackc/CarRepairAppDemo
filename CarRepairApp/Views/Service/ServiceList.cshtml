@@ -32,6 +32,8 @@
 
     @foreach (var item in Model)
     {
+        using (Html.BeginForm("DeleteServiceByID", "Service", new { id = item.ServiceId /* id=item.PrimaryKey */ }))
+        { 
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ServiceId)
@@ -54,14 +56,17 @@
             <td>
                 @Html.ActionLink("Edit", "Update", new { id = item.ServiceId  /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "SeviceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "DeleteServiceByID", new { id = item.ServiceId /* id=item.PrimaryKey */ })
+                
+                <input class="btn btn-danger" type="submit" value="Delete"
+                       onclick="return confirm('Are you sure you want to delete record with ID = @item.ServiceId Service: @item.ServiceName');" />
             </td>
         </tr>
+        }
     }
 
 </table>
 
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Service", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>
