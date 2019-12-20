@@ -43,9 +43,13 @@
 
     @foreach (var item in Model)
     {
+        using (Html.BeginForm("DeleteOrderByID", "Order", new { id = item.OrderId /* id=item.PrimaryKey */ }))
+        { 
         <tr>
             <td>
+                <a >
                 @Html.DisplayFor(modelItem => item.OrderId)
+                </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ClientId)
@@ -77,13 +81,16 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                
+                <input class="btn btn-danger" type="submit" value="Delete"
+                       onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderId Order: @item.OrderType');" />
             </td>
         </tr>
+        }
     }
 
 </table>
 
 <p>
-    @Html.ActionLink("Create New Order", "create")
+    @Html.ActionLink("Create New Order", "create", null, new { @class = "btn btn-primary btn-large" })
 </p>
