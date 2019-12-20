@@ -32,12 +32,13 @@ namespace DataLibrary.BusinessLogic
         }
 
         //read order line data
-        public static List<OrderLineModel> LoadOrderLine()
+        public static List<OrderLineModel> LoadOrderLine(int id)
         {
             //create SQL Query
             string sql = @"SELECT *
-                           FROM dbo.[OrderLine];";
-            return SqlDataAccess.LoadData<OrderLineModel>(sql);
+                           FROM dbo.[OrderLine]
+                           WHERE OrderId = @id;";
+            return SqlDataAccess.LoadData<OrderLineModel>(sql, id);
         }
         public static OrderLineModel LoadOneOrderLine(int id)
         {
