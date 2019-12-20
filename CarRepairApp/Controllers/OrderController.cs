@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 using CarRepairApp.Models;
 using static DataLibrary.BusinessLogic.OrderProcessor;
+using static DataLibrary.BusinessLogic.OrderLineProcessor;
+//using DataLibrary.BusinessLogic;
 
 namespace CarRepairApp.Controllers
 {
@@ -36,5 +38,67 @@ namespace CarRepairApp.Controllers
             }
             return View(orders);
         }
+
+        public ActionResult OrderDetails(int id)
+        {
+            //load the complete order
+            var order = LoadOneOrder(id);
+            var orderLineList = LoadOrderLine(id);
+
+            OrderLineModel newOrderLine = new OrderLineModel();
+
+
+            var FinalOrder = new OrderStructure
+            {
+                OrderId = order.OrderId,
+                ClientId = order.ClientId,
+                StoreId = order.StoreId,
+                EmployeeId = order.EmployeeId,
+                OrderTime = order.OrderTime,
+                OrderType = order.OrderType,
+                OrderSpecifications = order.OrderSpecifications,
+                Description = order.Description,
+                Location = order.Location,
+                Status = order.Status,
+                //List<OrderLineModel> OrderBody = orderLineList.Where( c => c.OrderId == order.OrderId ).ToList();
+            };
+
+
+            return View(FinalOrder);
+        }
+
+        /*
+        [HttpGet]
+        public ActionResult Create()
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult Create(OrderModel model)
+        {
+
+        }
+
+
+        [HttpGet]
+        public ActionResult Update(OrderModel model)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult Update(OrderModel model)
+        {
+
+        }
+        */
+
+        public ActionResult DeleteOrderByID(int Id)
+        {
+            DeleteOrder(Id);
+            return RedirectToAction("OrderList");
+        }
+
     }
 }
