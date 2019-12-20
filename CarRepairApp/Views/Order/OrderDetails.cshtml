@@ -4,12 +4,16 @@
     ViewBag.Title = "OrderDetails";
 }
 
-<h2>OrderDetails</h2>
+<br />
+<br />
+<br />
+
+<h2>Detalle De Ordenes</h2>
 
 <div>
     <h4>OrderStructure</h4>
     <hr />
-    
+
     <dl class="dl-horizontal">
 
         <dt>
@@ -95,7 +99,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "OrderList", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Editar", "Update", new { id = Model.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Lista De Ordenes", "OrderList", null, new { @class = "btn btn-primary btn-large" })
 </p>
- 
+

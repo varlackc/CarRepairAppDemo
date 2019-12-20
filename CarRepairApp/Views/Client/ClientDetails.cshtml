@@ -4,6 +4,10 @@
     ViewBag.Title = "ClientDetails";
 }
 
+<br />
+<br />
+<br />
+
 <h2>ClientDetails</h2>
 
 <div>
@@ -69,6 +73,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Update", new {id = Model.ClientId /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Update", new { id = Model.ClientId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
     @Html.ActionLink("Back to List", "ClientList", null, new { @class = "btn btn-primary" })
 </p>

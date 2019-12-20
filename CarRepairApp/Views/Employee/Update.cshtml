@@ -4,13 +4,17 @@
     ViewBag.Title = "Update";
 }
 
+<br />
+<br />
+<br />
+
 <h2>Update</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>EmployeeModel</h4>
         <hr />
@@ -18,8 +22,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EmployeeId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EmployeeId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly"  } })
-                @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger", @readonly = "readonly"  })
+                @Html.EditorFor(model => model.EmployeeId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger", @readonly = "readonly" })
             </div>
         </div>
 

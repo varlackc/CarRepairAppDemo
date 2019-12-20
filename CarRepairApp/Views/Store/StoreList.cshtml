@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<CarRepairApp.Models.StoreModel>
 
 @{
-    ViewBag.Title = "StoreList";
+    ViewBag.Title = "Store List";
 }
 
-<h2>StoreList</h2>
+<br />
+<br />
+<br />
+
+<h2>Lista De Talleres De Mecanica</h2>
 
 <table class="table">
     <tr>
@@ -29,36 +33,36 @@
     @foreach (var item in Model)
     {
         using (Html.BeginForm("DeleteStoreByID", "Store", new { id = item.StoreId /* id=item.PrimaryKey */ }))
-        { 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoursOfOperation)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Update", new { id = item.StoreId /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "StoreDetails", new { id = item.StoreId /* id=item.PrimaryKey */ }) |
-                
-                <input class="btn btn-danger" type="submit" value="Delete"
-                       onclick="return confirm('Are you sure you want to delete record with ID = @item.StoreId Store: @item.StoreName');" />
-            </td>
-        </tr>
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoursOfOperation)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Update", new { id = item.StoreId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detalles", "StoreDetails", new { id = item.StoreId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+
+                    <input class="btn btn-danger" type="submit" value="Borrar"
+                           onclick="return confirm('Are you sure you want to delete record with ID = @item.StoreId Store: @item.StoreName');" />
+                </td>
+            </tr>
         }
     }
 
 </table>
 
 <p>
-    @Html.ActionLink("Add New Store", "Create", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Agregar Nuevo Taller", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>

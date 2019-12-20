@@ -67,32 +67,62 @@ namespace CarRepairApp.Controllers
             return View(FinalOrder);
         }
 
-        /*
+        
         [HttpGet]
         public ActionResult Create()
         {
-
+            ViewBag.Message = "Order";
+            return View();
         }
 
+        
         [HttpPost]
         public ActionResult Create(OrderModel model)
         {
+            if (ModelState.IsValid)
+            {
+                //Note: When calling a method, the order of the parameters is very important
+                int recordsCreated = CreateOrder(model.ClientId, model.StoreId, model.EmployeeId, 
+                                                 model.OrderTime, model.OrderType, model.OrderSpecifications, 
+                                                 model.Description, model.Location, model.Status);
 
+                return RedirectToAction("OrderList");
+            }
+            ViewBag.Message = "Order List";
+            return View();
         }
 
-
         [HttpGet]
-        public ActionResult Update(OrderModel model)
+        public ActionResult Update(int id)
         {
+            var resultModel = LoadOneOrder(id);
+            OrderModel orderModel = new OrderModel();
 
+            orderModel.OrderId = resultModel.OrderId;
+            orderModel.ClientId = resultModel.ClientId;
+            orderModel.StoreId = resultModel.StoreId;
+            orderModel.EmployeeId = resultModel.EmployeeId;
+            orderModel.OrderTime = resultModel.OrderTime;
+            orderModel.OrderType = resultModel.OrderType;
+            orderModel.OrderSpecifications = resultModel.OrderSpecifications;
+            orderModel.Description = resultModel.Description;
+            orderModel.Location = resultModel.Location;
+            orderModel.Status = resultModel.Status;
+
+            return View(orderModel);
         }
 
         [HttpPost]
         public ActionResult Update(OrderModel model)
         {
-
+            if (ModelState.IsValid)
+            {
+                UpdateOrder(model.ClientId, model.StoreId, model.EmployeeId, model.OrderTime, 
+                            model.OrderType, model.OrderSpecifications, model.Description, model.Location,
+                            model.Status);
+            }
+            return RedirectToAction("OrderList");
         }
-        */
 
         public ActionResult DeleteOrderByID(int Id)
         {

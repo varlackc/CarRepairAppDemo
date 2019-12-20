@@ -4,6 +4,10 @@
     ViewBag.Title = "ServiceList";
 }
 
+<br />
+<br />
+<br />
+
 <h2>ServiceList</h2>
 
 <table class="table">
@@ -33,34 +37,34 @@
     @foreach (var item in Model)
     {
         using (Html.BeginForm("DeleteServiceByID", "Service", new { id = item.ServiceId /* id=item.PrimaryKey */ }))
-        { 
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ServiceType)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Update", new { id = item.ServiceId  /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "SeviceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }) |
-                
-                <input class="btn btn-danger" type="submit" value="Delete"
-                       onclick="return confirm('Are you sure you want to delete record with ID = @item.ServiceId Service: @item.ServiceName');" />
-            </td>
-        </tr>
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceType)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Update", new { id = item.ServiceId  /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Details", "SeviceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+
+                    <input class="btn btn-danger" type="submit" value="Delete"
+                           onclick="return confirm('Are you sure you want to delete record with ID = @item.ServiceId Service: @item.ServiceName');" />
+                </td>
+            </tr>
         }
     }
 

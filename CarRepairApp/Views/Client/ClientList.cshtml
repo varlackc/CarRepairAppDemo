@@ -4,6 +4,10 @@
     ViewBag.Title = "ClientList";
 }
 
+<br />
+<br />
+<br />
+
 <h2>ClientList</h2>
 
 <table class="table">
@@ -36,36 +40,36 @@
     {
         using (Html.BeginForm("DeleteClientByID", "Client", new { id = item.ClientId /* id=item.PrimaryKey */ }))
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClientId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Update", new { id = item.ClientId /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "ClientDetails", new { id = item.ClientId /* id=item.PrimaryKey */ }) |
-                
-                <input class="btn btn-danger" type="submit" value="Delete"
-                       onclick="return confirm('Are you sure you want to delete record with ID = @item.ClientId Client: @item.FirstName @item.LastName');" />
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Update", new { id = item.ClientId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Details", "ClientDetails", new { id = item.ClientId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+
+                    <input class="btn btn-danger" type="submit" value="Delete"
+                           onclick="return confirm('Are you sure you want to delete record with ID = @item.ClientId Client: @item.FirstName @item.LastName');" />
+                </td>
+            </tr>
         }
     }
 

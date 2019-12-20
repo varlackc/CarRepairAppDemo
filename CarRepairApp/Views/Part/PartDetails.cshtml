@@ -4,6 +4,10 @@
     ViewBag.Title = "PartDetails";
 }
 
+<br />
+<br />
+<br />
+
 <h2>PartDetails</h2>
 
 <div>
@@ -78,6 +82,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Update", new { id = Model.PartId /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Update", new { id = Model.PartId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
     @Html.ActionLink("Back to List", "PartList", null, new { @class = "btn btn-primary" })
 </p>
