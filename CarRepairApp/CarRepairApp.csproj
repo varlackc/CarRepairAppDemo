@@ -189,6 +189,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderLineModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\OrderStructureModel.cs" />
     <Compile Include="Models\PartModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\StoreModel.cs" />
@@ -329,6 +330,8 @@
     <Content Include="Views\Service\Update.cshtml" />
     <Content Include="Views\Service\DeleteServiceByID.cshtml" />
     <Content Include="Views\Order\OrderList.cshtml" />
+    <Content Include="Views\Order\OrderDetails.cshtml" />
+    <Content Include="Views\Order\DeleteOrderByID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
