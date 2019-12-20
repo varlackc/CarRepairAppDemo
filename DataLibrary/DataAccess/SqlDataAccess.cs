@@ -26,6 +26,15 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        public static List<T> LoadData<T>(string sql, int id)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                return cnn.Query<T>(sql, new { id }).ToList(); // the id is added as such new { id }
+            }
+        }
+
+
         public static T LoadOne<T>(string sql, int id)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
