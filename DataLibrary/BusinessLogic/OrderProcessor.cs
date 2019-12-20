@@ -22,14 +22,16 @@ namespace DataLibrary.BusinessLogic
                 OrderSpecifications = orderSpecifications, 
                 Description = description, 
                 Location = location, 
-                Status = status,
+                Status = status
                 //OrderLine = List<OrderLineModel> 
             };
-            string sql = @"INSERT INTO dbo.[Order] (ClientId, StoreId, EmployeeId, OrderTime, OrderType, 
+            string sqlHeading = @"INSERT INTO dbo.[Order] (ClientId, StoreId, EmployeeId, OrderTime, OrderType, 
                                                     Specifications, [Description], [Location], [Status])
                                         VALUES (@ClientId, @StoreId, @EmployeeId, @OrderTime, @OrderType, 
                                                     @OrderSpecifications, @Description, @Location, @Status);";
-            return SqlDataAccess.SaveData(sql, data);
+
+            return SqlDataAccess.SaveData(sqlHeading, data);
+
         }
 
         // Read Order
@@ -42,14 +44,45 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<OrderModel>(sql);
         }
 
-        public static EmployeeModel LoadOneOrder(int id)
+        public static OrderModel LoadOneOrder(int id)
         {
 
             //create SQL Query
-            string sql = @"SELECT * 
+            string sqlHeader = @"SELECT * 
                            FROM dbo.[Order]
                            WHERE OrderId = @id;";
-            return SqlDataAccess.LoadOne<EmployeeModel>(sql, id);
+
+            var orderHeader = SqlDataAccess.LoadOne<OrderModel>(sqlHeader, id);
+
+            
+            return orderHeader;
+
+        }
+
+        public static OrderStructure LoadOneOrderStructure(int id)
+        {
+
+            //create SQL Query
+            string sqlHeader = @"SELECT * 
+                           FROM dbo.[Order]
+                           WHERE OrderId = @id;";
+
+            string sqlBody = @"SELECT *
+                           FROM dbo.[OrderLine]
+                           WHERE OrderId = @id;";
+
+            var orderHeader = SqlDataAccess.LoadOne<OrderModel>(sqlHeader, id);
+
+            var orderBody = SqlDataAccess.LoadData<OrderLineModel>(sqlBody, id);
+
+            var order = new OrderStructure
+            {
+                OrderHeading = orderHeader,
+                OrderBody = orderBody
+            };
+
+            return order;
+
         }
 
         //Update Order Data
