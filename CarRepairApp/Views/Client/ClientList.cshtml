@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>ClientList</h2>
+<h2>Lista De Clientes</h2>
 
 <table class="table">
     <tr>
@@ -63,11 +63,11 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Update", new { id = item.ClientId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Details", "ClientDetails", new { id = item.ClientId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Editar", "Update", new { id = item.ClientId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detalles", "ClientDetails", new { id = item.ClientId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
 
-                    <input class="btn btn-danger" type="submit" value="Delete"
-                           onclick="return confirm('Are you sure you want to delete record with ID = @item.ClientId Client: @item.FirstName @item.LastName');" />
+                    <input class="btn btn-danger" type="submit" value="Borrar"
+                           onclick="return confirm('Esta Suguro que decea borrar el record con ID = @item.ClientId Cliente: @item.FirstName @item.LastName');" />
                 </td>
             </tr>
         }
@@ -76,5 +76,5 @@
 </table>
 
 <p>
-    @Html.ActionLink("Add New Client", "Create", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Agregar  Nuevo Cliente", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>
