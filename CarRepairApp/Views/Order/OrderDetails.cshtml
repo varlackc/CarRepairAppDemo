@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>Detalle De Ordenes</h2>
+<h2>Detalle De Pedidos</h2>
 
 <div>
     <h4>OrderStructure</h4>
@@ -17,7 +17,8 @@
     <dl class="dl-horizontal">
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderId)
+            @* @Html.DisplayNameFor(model => model.OrderId) *@
+            Pedido ID
         </dt>
 
         <dd>
@@ -25,7 +26,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ClientId)
+            @*  @Html.DisplayNameFor(model => model.ClientId) *@
+            Cliente ID
         </dt>
 
         <dd>
@@ -33,7 +35,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StoreId)
+            @* @Html.DisplayNameFor(model => model.StoreId) *@
+            Taller ID
         </dt>
 
         <dd>
@@ -41,7 +44,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmployeeId)
+            @* @Html.DisplayNameFor(model => model.EmployeeId) *@
+            Empleado ID
         </dt>
 
         <dd>
@@ -49,7 +53,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderTime)
+            @*  @Html.DisplayNameFor(model => model.OrderTime) *@
+            Fecha Del Pedido
         </dt>
 
         <dd>
@@ -57,7 +62,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderType)
+            @*  @Html.DisplayNameFor(model => model.OrderType) *@
+            Tipo De Pedido
         </dt>
 
         <dd>
@@ -65,7 +71,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderSpecifications)
+            @*  @Html.DisplayNameFor(model => model.OrderSpecifications) *@
+            Especificacion
         </dt>
 
         <dd>
@@ -73,7 +80,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @*  @Html.DisplayNameFor(model => model.Description) *@
+            Descripción
         </dt>
 
         <dd>
@@ -81,7 +89,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location)
+            @*  @Html.DisplayNameFor(model => model.Location) *@
+            Ubicación
         </dt>
 
         <dd>
@@ -89,7 +98,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Status)
+            @*  @Html.DisplayNameFor(model => model.Status) *@
+            Estado
         </dt>
 
         <dd>
@@ -100,6 +110,6 @@
 </div>
 <p>
     @Html.ActionLink("Editar", "Update", new { id = Model.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
-    @Html.ActionLink("Lista De Ordenes", "OrderList", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
 </p>
 

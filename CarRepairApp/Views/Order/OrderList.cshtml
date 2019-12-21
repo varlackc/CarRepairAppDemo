@@ -13,34 +13,44 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.OrderId)
+           @* @Html.DisplayNameFor(model => model.OrderId) *@
+            Pedido ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ClientId)
+           @* @Html.DisplayNameFor(model => model.ClientId) *@
+            Cliente ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StoreId)
+            @*  @Html.DisplayNameFor(model => model.StoreId) *@
+            Taller ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmployeeId)
+            @* @Html.DisplayNameFor(model => model.EmployeeId) *@
+            Empleado ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OrderTime)
+            @* @Html.DisplayNameFor(model => model.OrderTime) *@
+            Fecha Del Pedido
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OrderType)
+            @*  @Html.DisplayNameFor(model => model.OrderType) *@
+            Tipo de Pedido
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OrderSpecifications)
+            @*  @Html.DisplayNameFor(model => model.OrderSpecifications) *@
+            Especificacion
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @*  @Html.DisplayNameFor(model => model.Description) *@
+            Descripción
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location)
+            @*  @Html.DisplayNameFor(model => model.Location) *@
+            Ubicación
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @*  @Html.DisplayNameFor(model => model.Status) *@
+            Estado
         </th>
         <th></th>
     </tr>
@@ -96,5 +106,5 @@
 </table>
 
 <p>
-    @Html.ActionLink("Agregar Nueva Orden", "create", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Agregar Nuevo Pedido", "create", null, new { @class = "btn btn-primary btn-large" })
 </p>
