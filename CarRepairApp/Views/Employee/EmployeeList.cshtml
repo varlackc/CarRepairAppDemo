@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>EmployeeList</h2>
+<h2>Lista De Empleados</h2>
 
 <table class="table">
     <tr>
@@ -63,10 +63,10 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Update", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Details", "EmployeeDetails", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Editar", "Update", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detalles", "EmployeeDetails", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
 
-                    <input class="btn btn-danger" type="submit" value="Delete"
+                    <input class="btn btn-danger" type="submit" value="Borrar"
                            onclick="return confirm('Are you sure you want to delete record with ID = @item.EmployeeId Store: @item.FirstName @item.LastName');" />
 
                 </td>
@@ -78,5 +78,5 @@
 
 
 <p>
-    @Html.ActionLink("Add New Employee", "Create", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Agregar Nuevo Empleado", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>
