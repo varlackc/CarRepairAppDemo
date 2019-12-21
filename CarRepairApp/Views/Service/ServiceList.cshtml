@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>ServiceList</h2>
+<h2>Lista De Servicios</h2>
 
 <table class="table">
     <tr>
@@ -58,10 +58,10 @@
                     @Html.DisplayFor(modelItem => item.ServiceType)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Update", new { id = item.ServiceId  /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Details", "SeviceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Editar", "Update", new { id = item.ServiceId  /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Detalles", "SeviceDetails", new { id = item.ServiceId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
 
-                    <input class="btn btn-danger" type="submit" value="Delete"
+                    <input class="btn btn-danger" type="submit" value="Borrar"
                            onclick="return confirm('Are you sure you want to delete record with ID = @item.ServiceId Service: @item.ServiceName');" />
                 </td>
             </tr>
@@ -72,5 +72,5 @@
 
 
 <p>
-    @Html.ActionLink("Add New Service", "Create", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Agregar Nuevo Servicio", "Create", null, new { @class = "btn btn-primary btn-large" })
 </p>
