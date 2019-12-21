@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>Create</h2>
+<h2>Agregar Nueva Orden</h2>
 
 @using (Html.BeginForm())
 {
@@ -101,12 +101,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Agregar" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back To Order List", "OrderList", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Lista De Ordenes", "OrderList", null, new { @class = "btn btn-primary btn-large" })
 </div>
