@@ -52,7 +52,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Fecha DeL Pedido", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Fecha De Pedido", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OrderTime, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OrderTime, "", new { @class = "text-danger" })
