@@ -44,6 +44,31 @@ namespace DataLibrary.BusinessLogic
             return SqlDataAccess.LoadData<OrderModel>(sql);
         }
 
+        public static List<Order2Model> LoadOrder2()
+        {
+            //create SQL Query
+            string sql = @"
+SELECT  dbo.[Order].OrderId, dbo.[Client].UserName AS ClientName,
+dbo.[Store].StoreName, 
+dbo.[Employee].UserName AS EmployeeName,
+dbo.[Order].OrderTime, dbo.[Order].OrderType, 
+dbo.[Order].Specifications, dbo.[Order].[Description],
+dbo.[Order].[Location], dbo.[Order].[Status],
+dbo.[OrderLine].OrderLineId,
+dbo.[OrderLine].PartId, dbo.[OrderLine].ServiceId, 
+dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
+dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
+dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
+FROM ((((dbo.[ORDER]
+INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
+INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
+INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
+INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId);";
+
+            return SqlDataAccess.LoadData<Order2Model>(sql);
+        }
+
+
         public static OrderModel LoadOneOrder(int id)
         {
 
@@ -58,6 +83,37 @@ namespace DataLibrary.BusinessLogic
             return orderHeader;
 
         }
+
+        public static Order2Model LoadOneOrder2(int id)
+        {
+
+            //create SQL Query
+            string sqlHeader = @"
+SELECT  dbo.[Order].OrderId, dbo.[Client].UserName AS ClientName,
+dbo.[Store].StoreName, 
+dbo.[Employee].UserName AS EmployeeName,
+dbo.[Order].OrderTime, dbo.[Order].OrderType, 
+dbo.[Order].Specifications, dbo.[Order].[Description],
+dbo.[Order].[Location], dbo.[Order].[Status],
+dbo.[OrderLine].OrderLineId,
+dbo.[OrderLine].PartId, dbo.[OrderLine].ServiceId, 
+dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
+dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
+dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
+FROM ((((dbo.[ORDER]
+INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
+INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
+INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
+INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId)
+WHERE dbo.[ORDER].OrderId = @id;";
+
+            var orderHeader = SqlDataAccess.LoadOne<Order2Model>(sqlHeader, id);
+
+
+            return orderHeader;
+
+        }
+
 
         public static OrderStructure LoadOneOrderStructure(int id)
         {
