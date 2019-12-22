@@ -16,81 +16,83 @@
     <hr />
 
     <dl class="dl-horizontal">
+        @*
+            <dt>
+                Pedido ID
+            </dt>
 
-        <dt>
-            Pedido ID
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderId)
+                @Html.DisplayFor(model => model.FirstOrDefault.OrderId)
+                @Model.FirstOrDefault(s => s.OrderId == ).
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderId)
-        </dd>
+            <dt>
+                Cliente ID
+            </dt>
 
-        <dt>
-            Cliente ID
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClientId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ClientId)
-        </dd>
+            <dt>
+                Taller ID
+            </dt>
 
-        <dt>
-            Taller ID
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StoreId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StoreId)
-        </dd>
+            <dt>
+                Empleado ID
+            </dt>
 
-        <dt>
-            Empleado ID
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeId)
-        </dd>
+            <dt>
+                Fecha De Pedido
+            </dt>
 
-        <dt>
-            Fecha De Pedido
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderTime)
-        </dd>
+            <dt>
+                Tipo De Pedido
+            </dt>
 
-        <dt>
-            Tipo De Pedido
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderType)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderType)
-        </dd>
+            <dt>
+                Especificacion
+            </dt>
 
-        <dt>
-            Especificacion
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderSpecifications)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.OrderSpecifications)
-        </dd>
+            <dt>
+                Descripción
+            </dt>
 
-        <dt>
-            Descripción
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dt>
+                Ubicación
+            </dt>
 
-        <dt>
-            Ubicación
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            Estado
+            <dt>
+        Estado
         </dt>
 
         <dd>
@@ -106,22 +108,22 @@
         <th>
             @Html.DisplayNameFor(model => model.OrderId)
         </th>
-        @*
+        
             <th>
                 @Html.DisplayNameFor(model => model.ClientId)
             </th>
-        *@
+        
         <th>
             @Html.DisplayNameFor(model => model.ClientName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
-        @*
+        
             <th>
                 @Html.DisplayNameFor(model => model.StoreId)
             </th>
-        *@
+        
         <th>
             @Html.DisplayNameFor(model => model.StoreName)
         </th>
@@ -137,16 +139,15 @@
         <th>
             @Html.DisplayNameFor(model => model.Specifications)
         </th>
-        @*
+        
             <th>
                 @Html.DisplayNameFor(model => model.EmployeeId)
             </th>
-        *@
-        @*
+        
             <th>
                 @Html.DisplayNameFor(model => model.OrderSpecifications)
             </th>
-        *@
+        
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -189,22 +190,22 @@
             <td>
                 @Html.DisplayFor(modelItem => item.OrderId)
             </td>
-            @*
+            
                 <td>
                     @Html.DisplayFor(modelItem => item.ClientId)
                 </td>
-            *@
+            
             <td>
                 @Html.DisplayFor(modelItem => item.ClientName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
-            @*
+            
                 <td>
                     @Html.DisplayFor(modelItem => item.StoreId)
                 </td>
-            *@
+            
             <td>
                 @Html.DisplayFor(modelItem => item.StoreName)
             </td>
@@ -220,16 +221,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Specifications)
             </td>
-            @*
+            
                 <td>
                     @Html.DisplayFor(modelItem => item.EmployeeId)
                 </td>
-            *@
-            @*
                 <td>
                     @Html.DisplayFor(modelItem => item.OrderSpecifications)
                 </td>
-            *@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
@@ -272,7 +270,7 @@
     }
 
 </table>
-
+*@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

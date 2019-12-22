@@ -141,6 +141,33 @@ WHERE dbo.[ORDER].OrderId = @id;";
 
         }
 
+
+        public static OrderStructure LoadOneOrderStructure2(int id)
+        {
+
+            //create SQL Query
+            string sqlHeader = @"SELECT * 
+                           FROM dbo.[Order]
+                           WHERE OrderId = @id;";
+
+            string sqlBody = @"SELECT *
+                           FROM dbo.[OrderLine]
+                           WHERE OrderId = @id;";
+
+            var orderHeader = SqlDataAccess.LoadOne<OrderModel>(sqlHeader, id);
+
+            var orderBody = SqlDataAccess.LoadData<OrderLineModel>(sqlBody, id);
+
+            var order = new OrderStructure
+            {
+                OrderHeading = orderHeader,
+                OrderBody = orderBody
+            };
+
+            return order;
+
+        }
+
         //Update Order Data
         public static void UpdateOrder(int clientId, int storeId, int employeeId, DateTime orderTime,
                                     string orderType, string orderSpecifications, string description,

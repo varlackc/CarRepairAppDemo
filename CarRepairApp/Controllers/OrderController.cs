@@ -76,6 +76,43 @@ namespace CarRepairApp.Controllers
             return View(orders);
         }
 
+        public ActionResult OrderList3(int id)
+        {
+            var data = LoadOneOrderStructure2(id); //load the data
+            //List<OrderStructure> orders = new List<OrderStructure>(); //create a list of projects
+
+            /*
+            foreach (var order in orders) {
+                order.OrderHead.OrderId = data.OrderHeading.OrderId;
+                order.OrderHead.ClientId = data.OrderHeading.ClientId;
+                order.OrderHead.StoreId = data.OrderHeading.StoreId;
+                order.OrderHead.EmployeeId = data.OrderHeading.EmployeeId;
+                order.OrderHead.OrderTime = data.OrderHeading.OrderTime;
+                order.OrderHead.OrderType = data.OrderHeading.OrderType;
+                order.OrderHead.OrderSpecifications = data.OrderHeading.OrderSpecifications;
+                order.OrderHead.Description = data.OrderHeading.Description;
+                order.OrderHead.Location = data.OrderHeading.Location;
+                order.OrderHead.Status = data.OrderHeading.Status;
+
+               /*
+                foreach (var body in data.OrderBody)
+                {
+                    order.OrderBody.Select(o => new { order }).ToList();
+                }
+                */
+
+                //order.OrderBody = data.OrderBody.FindAll().Where(b => b.OrderId == data.OrderHeading.OrderId).ToList();
+                /*
+                var bodyResult = data.OrderBody.Select(o => new {
+                    Or
+                }).ToList();
+                
+                
+
+            }
+        */
+            return View(data);
+        }
 
 
         public ActionResult OrderDetails(int id)

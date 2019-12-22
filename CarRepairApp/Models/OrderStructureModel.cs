@@ -10,6 +10,7 @@ namespace CarRepairApp.Models
 {
     public class OrderStructure
     {
+        /*
         public int OrderId { get; set; }
         public int ClientId { get; set; }
         public int StoreId { get; set; }
@@ -19,8 +20,9 @@ namespace CarRepairApp.Models
         public string OrderSpecifications { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
-        public string Status { get; set; }
-        //public List<OrderLineModel> OrderBody { get; set; }
+        public string Status { get; set; }*/
+
+        public OrderModel OrderHead { get; set; }
         public List<OrderLineModel> OrderBody { get; set; }
     }
 }

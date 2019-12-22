@@ -22,7 +22,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderId)
+            @Html.DisplayFor(model => model.OrderHead.OrderId)
         </dd>
 
         <dt>
@@ -31,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ClientId)
+            @Html.DisplayFor(model => model.OrderHead.ClientId)
         </dd>
 
         <dt>
@@ -40,7 +40,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StoreId)
+            @Html.DisplayFor(model => model.OrderHead.StoreId)
         </dd>
 
         <dt>
@@ -49,7 +49,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EmployeeId)
+            @Html.DisplayFor(model => model.OrderHead.EmployeeId)
         </dd>
 
         <dt>
@@ -58,7 +58,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderTime)
+            @Html.DisplayFor(model => model.OrderHead.OrderTime)
         </dd>
 
         <dt>
@@ -67,7 +67,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderType)
+            @Html.DisplayFor(model => model.OrderHead.OrderType)
         </dd>
 
         <dt>
@@ -76,7 +76,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderSpecifications)
+            @Html.DisplayFor(model => model.OrderHead.OrderSpecifications)
         </dd>
 
         <dt>
@@ -85,7 +85,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Description)
+            @Html.DisplayFor(model => model.OrderHead.Description)
         </dd>
 
         <dt>
@@ -94,7 +94,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Location)
+            @Html.DisplayFor(model => model.OrderHead.Location)
         </dd>
 
         <dt>
@@ -103,13 +103,13 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @Html.DisplayFor(model => model.OrderHead.Status)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Update", new { id = Model.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Editar", "Update", new { id = Model.OrderHead.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
     @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
 </p>
 
