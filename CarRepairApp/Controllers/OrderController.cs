@@ -39,6 +39,45 @@ namespace CarRepairApp.Controllers
             return View(orders);
         }
 
+        public ActionResult OrderList2()
+        {
+            var data = LoadOrder2(); //load the data
+            List<Order2Model> orders = new List<Order2Model>(); //create a list of projects
+            foreach (var row in data) // loop to organize the data in the projects list
+            {
+                orders.Add(new Order2Model
+                {
+                    OrderId = row.OrderId,
+                    ClientId = row.ClientId,
+                    ClientName = row.ClientName,
+                    UserName = row.UserName,
+                    StoreId = row.StoreId,
+                    StoreName = row.StoreName,
+                    EmployeeId = row.EmployeeId,
+                    EmployeeName = row.EmployeeName,
+                    OrderTime = row.OrderTime,
+                    OrderType = row.OrderType,
+                    Specifications = row.Specifications,
+                    OrderSpecifications = row.OrderSpecifications,
+                    Description = row.Description,
+                    Location = row.Location,
+                    Status = row.Status,
+                    OrderLineId = row.OrderLineId,
+                    PartId = row.PartId,
+                    ServiceId = row.ServiceId,
+                    LineDescription = row.LineDescription,
+                    ServiceQty = row.ServiceQty,
+                    PartQty = row.PartQty,
+                    OrderNotes = row.OrderNotes
+                    //List < OrderLineModel > OrderLine = new List<OrderLineModel>();
+
+                });
+            }
+            return View(orders);
+        }
+
+
+
         public ActionResult OrderDetails(int id)
         {
             //load the complete order
