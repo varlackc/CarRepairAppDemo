@@ -49,6 +49,7 @@
     <Compile Include="BusinessLogic\EmployeeProcessor.cs" />
     <Compile Include="BusinessLogic\OrderLineProcessor.cs" />
     <Compile Include="BusinessLogic\OrderProcessor.cs" />
+    <Compile Include="Models\Order2Model.cs" />
     <Compile Include="Models\OrderStructureModel.cs" />
     <Compile Include="BusinessLogic\PartProcessor.cs" />
     <Compile Include="BusinessLogic\ServiceProcessor.cs" />
