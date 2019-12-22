@@ -1,4 +1,4 @@
-﻿@model CarRepairApp.Models.OrderStructure
+﻿@model CarRepairApp.Models.OrderModel
 
 @{
     ViewBag.Title = "OrderDetails";
@@ -22,7 +22,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.OrderId)
+            @Html.DisplayFor(model => model.OrderId)
         </dd>
 
         <dt>
@@ -31,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.ClientId)
+            @Html.DisplayFor(model => model.ClientId)
         </dd>
 
         <dt>
@@ -40,7 +40,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.StoreId)
+            @Html.DisplayFor(model => model.StoreId)
         </dd>
 
         <dt>
@@ -49,7 +49,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.EmployeeId)
+            @Html.DisplayFor(model => model.EmployeeId)
         </dd>
 
         <dt>
@@ -58,7 +58,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.OrderTime)
+            @Html.DisplayFor(model => model.OrderTime)
         </dd>
 
         <dt>
@@ -67,7 +67,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.OrderType)
+            @Html.DisplayFor(model => model.OrderType)
         </dd>
 
         <dt>
@@ -76,7 +76,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.OrderSpecifications)
+            @Html.DisplayFor(model => model.OrderSpecifications)
         </dd>
 
         <dt>
@@ -85,7 +85,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.Description)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
         <dt>
@@ -94,7 +94,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.Location)
+            @Html.DisplayFor(model => model.Location)
         </dd>
 
         <dt>
@@ -103,13 +103,13 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OrderHead.Status)
+            @Html.DisplayFor(model => model.Status)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Update", new { id = Model.OrderHead.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Editar", "Update", new { id = Model.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
     @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
 </p>
 

@@ -114,17 +114,57 @@ namespace CarRepairApp.Controllers
             return View(data);
         }
 
+        public ActionResult OrderDetail3(int id)
+        {
+            var data = LoadOneOrderStructure2(id); //load the data
+
+            //transform the data from a Data Library Model to a Car App model
+
+            OrderStructureModel finalOrder = new OrderStructureModel();
+            finalOrder.OrderHead.OrderId = data.OrderHeading.OrderId;
+            finalOrder.OrderHead.OrderId = data.OrderHeading.OrderId;
+            finalOrder.OrderHead.ClientId = data.OrderHeading.ClientId;
+            finalOrder.OrderHead.StoreId = data.OrderHeading.StoreId;
+            finalOrder.OrderHead.EmployeeId = data.OrderHeading.EmployeeId;
+            finalOrder.OrderHead.OrderTime = data.OrderHeading.OrderTime;
+            finalOrder.OrderHead.OrderType = data.OrderHeading.OrderType;
+            finalOrder.OrderHead.OrderSpecifications = data.OrderHeading.OrderSpecifications;
+            finalOrder.OrderHead.Description = data.OrderHeading.Description;
+            finalOrder.OrderHead.Location = data.OrderHeading.Location;
+            finalOrder.OrderHead.Status = data.OrderHeading.Status;
+
+            foreach (var line in data.OrderBody)
+            {
+                finalOrder.OrderBody.Add(new OrderLineModel
+                {
+                    OrderLineId = line.OrderLineId,
+                    OrderId = line.OrderId,
+                    PartId = line.PartId,
+                    ServiceId = line.ServiceId,
+                    LineNo = line.LineNo,
+                    LineDescription = line.LineDescription,
+                    ServiceQty = line.ServiceQty,
+                    PartQty = line.PartQty,
+                    Status = line.Status,
+                    OrderNotes = line.OrderNotes
+
+                });
+            }
+
+            return View(finalOrder);
+        }
+    
 
         public ActionResult OrderDetails(int id)
         {
             //load the complete order
             var order = LoadOneOrder(id);
-            var orderLineList = LoadOrderLine(id);
+           // var orderLineList = LoadOrderLine(id);
 
-            OrderLineModel newOrderLine = new OrderLineModel();
+           // OrderLineModel newOrderLine = new OrderLineModel();
 
-
-            var FinalOrder = new OrderStructure
+            
+            var FinalOrder = new OrderModel
             {
                 OrderId = order.OrderId,
                 ClientId = order.ClientId,
@@ -138,7 +178,7 @@ namespace CarRepairApp.Controllers
                 Status = order.Status,
                 //List<OrderLineModel> OrderBody = orderLineList.Where( c => c.OrderId == order.OrderId ).ToList();
             };
-
+            
 
             return View(FinalOrder);
         }
