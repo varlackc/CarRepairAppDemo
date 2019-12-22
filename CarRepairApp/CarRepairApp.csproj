@@ -187,6 +187,7 @@
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order2Model.cs" />
     <Compile Include="Models\OrderLineModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\OrderStructureModel.cs" />
@@ -334,6 +335,7 @@
     <Content Include="Views\Order\DeleteOrderByID.cshtml" />
     <Content Include="Views\Order\Update.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\OrderList2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
