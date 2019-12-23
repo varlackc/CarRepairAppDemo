@@ -34,6 +34,36 @@ namespace DataLibrary.BusinessLogic
 
         }
 
+        //Create new Order
+        public static int CreateOrderLine(int orderLineId, int orderId, int partId, int serviceId,
+                                    int lineNo, string lineDescription, int serviceQty, int partQty,
+                                    string status, string orderNotes, string partName, string serviceName)
+        {
+            OrderLineModel data = new OrderLineModel
+            {
+                OrderLineId = orderLineId,
+                OrderId = orderId,
+                PartId = partId,
+                ServiceId = serviceId,
+                LineNo = lineNo,
+                LineDescription = lineDescription,
+                ServiceQty = serviceQty,
+                PartQty = partQty,
+                Status = status,
+                OrderNotes = orderNotes,
+                PartName = partName,
+                ServiceName = serviceName
+            };
+            string sqlBody = @"INSERT INTO dbo.[Order] (OrderLineId, OrderId, PartId, ServiceId, LineNo, LineDescription, ServiceQty, PartQty, 
+                                                            [Status], OrderNotes, PartName, ServiceName)
+                                        VALUES (@OrderLineId, @OrderId, @PartId, @ServiceId, @LineNo, @LineDescription, @ServiceQty, @PartQty, 
+                                                    @Status, @OrderNotes, @PartName, @ServiceName);";
+
+            return SqlDataAccess.SaveData(sqlBody, data);
+
+        }
+
+
         // Read Order
         public static List<OrderModel> LoadOrder()
         {
@@ -113,7 +143,6 @@ namespace DataLibrary.BusinessLogic
             return orderHeader;
 
         }
-
 
         public static OrderStructureModel LoadOneOrderStructure(int id)
         {

@@ -339,6 +339,7 @@
     <Content Include="Views\Order\OrderList3.cshtml" />
     <Content Include="Views\Order\OrderDetail3.cshtml" />
     <Content Include="Views\Order\UpdateLine.cshtml" />
+    <Content Include="Views\Order\CreateLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

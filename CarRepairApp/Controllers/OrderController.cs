@@ -143,6 +143,31 @@ namespace CarRepairApp.Controllers
         }
 
         [HttpGet]
+        public ActionResult CreateLine()
+        {
+            ViewBag.Message = "OrderLine";
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateLine(OrderLineModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //Note: When calling a method, the order of the parameters is very important
+                int recordsCreated = CreateOrderLine(model.OrderLineId, model.OrderId, model.PartId, 
+                                    model.ServiceId, model.LineNo, model.LineDescription, model.ServiceQty,
+                                    model.PartQty, model.Status, model.OrderNotes, model.PartName, 
+                                    model.ServiceName);
+
+                return RedirectToAction("OrderList");
+            }
+            ViewBag.Message = "Order List";
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Update(int id)
         {
             var resultModel = LoadOneOrder2(id);
