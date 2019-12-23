@@ -18,5 +18,11 @@ namespace DataLibrary.Models
         public string Description { get; set; }
         public string Location { get; set; }
         public string Status { get; set; }
+
+        //---------------------------------
+
+        public string ClientName { get; set; }
+        public string StoreName { get; set; }
+        public string EmployeeName { get; set; }
     }
 }
