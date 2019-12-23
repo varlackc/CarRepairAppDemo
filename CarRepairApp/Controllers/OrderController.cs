@@ -79,8 +79,8 @@ namespace CarRepairApp.Controllers
         public ActionResult OrderList3(int id)
         {
             var data = LoadOneOrderStructure2(id); //load the data
-            //List<OrderStructure> orders = new List<OrderStructure>(); //create a list of projects
-
+            OrderStructureModel orders = new OrderStructureModel(); //create a list of projects
+            orders.OrderHead.ClientId = data.OrderHeading.ClientId;
             /*
             foreach (var order in orders) {
                 order.OrderHead.OrderId = data.OrderHeading.OrderId;
@@ -111,7 +111,7 @@ namespace CarRepairApp.Controllers
 
             }
         */
-            return View(data);
+            return View(orders);
         }
 
         public ActionResult OrderDetail3(int id)
@@ -119,7 +119,7 @@ namespace CarRepairApp.Controllers
             var data = LoadOneOrderStructure2(id); //load the data
 
             //transform the data from a Data Library Model to a Car App model
-
+            /*
             OrderStructureModel finalOrder = new OrderStructureModel();
             finalOrder.OrderHead.OrderId = data.OrderHeading.OrderId;
             finalOrder.OrderHead.OrderId = data.OrderHeading.OrderId;
@@ -150,8 +150,8 @@ namespace CarRepairApp.Controllers
 
                 });
             }
-
-            return View(finalOrder);
+            */
+            return View(data);
         }
     
 
