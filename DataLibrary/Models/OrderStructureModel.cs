@@ -8,9 +8,9 @@ using DataLibrary.Models;
 
 namespace DataLibrary.BusinessLogic
 {
-    public class OrderStructure
+    public class OrderStructureModel
     {
         public OrderModel OrderHeading { get; set; }
-        public List<OrderLineModel> OrderBody { get; set; }
+        public IEnumerable<OrderLineModel> OrderBody { get; set; }
     }
 }
