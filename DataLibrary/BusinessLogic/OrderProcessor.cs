@@ -115,7 +115,7 @@ WHERE dbo.[ORDER].OrderId = @id;";
         }
 
 
-        public static OrderStructure LoadOneOrderStructure(int id)
+        public static OrderStructureModel LoadOneOrderStructure(int id)
         {
 
             //create SQL Query
@@ -131,7 +131,7 @@ WHERE dbo.[ORDER].OrderId = @id;";
 
             var orderBody = SqlDataAccess.LoadData<OrderLineModel>(sqlBody, id);
 
-            var order = new OrderStructure
+            var order = new OrderStructureModel
             {
                 OrderHeading = orderHeader,
                 OrderBody = orderBody
@@ -142,7 +142,7 @@ WHERE dbo.[ORDER].OrderId = @id;";
         }
 
 
-        public static OrderStructure LoadOneOrderStructure2(int id)
+        public static OrderStructureModel LoadOneOrderStructure2(int id)
         {
 
             //create SQL Query
@@ -150,15 +150,18 @@ WHERE dbo.[ORDER].OrderId = @id;";
                            FROM dbo.[Order]
                            WHERE OrderId = @id;";
 
-            string sqlBody = @"SELECT *
-                           FROM dbo.[OrderLine]
-                           WHERE OrderId = @id;";
+            string sqlBody = @"
+SELECT	dbo.[OrderLine].*, dbo.[Part].PartName, dbo.[Service].ServiceName
+FROM ((dbo.[OrderLine]
+INNER JOIN dbo.[Part] ON dbo.[OrderLine].PartId = dbo.[Part].PartId)
+INNER JOIN dbo.[Service] ON dbo.[OrderLine].ServiceId = dbo.[Service].ServiceId) 
+WHERE OrderId = @id;";
 
             var orderHeader = SqlDataAccess.LoadOne<OrderModel>(sqlHeader, id);
 
             var orderBody = SqlDataAccess.LoadData<OrderLineModel>(sqlBody, id);
 
-            var order = new OrderStructure
+            var order = new OrderStructureModel
             {
                 OrderHeading = orderHeader,
                 OrderBody = orderBody
