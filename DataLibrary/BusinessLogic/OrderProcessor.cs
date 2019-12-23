@@ -48,22 +48,22 @@ namespace DataLibrary.BusinessLogic
         {
             //create SQL Query
             string sql = @"
-SELECT  dbo.[Order].OrderId, dbo.[Client].UserName AS ClientName,
-dbo.[Store].StoreName, 
-dbo.[Employee].UserName AS EmployeeName,
-dbo.[Order].OrderTime, dbo.[Order].OrderType, 
-dbo.[Order].Specifications, dbo.[Order].[Description],
-dbo.[Order].[Location], dbo.[Order].[Status],
-dbo.[OrderLine].OrderLineId,
-dbo.[OrderLine].PartId, dbo.[OrderLine].ServiceId, 
-dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
-dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
-dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
-FROM ((((dbo.[ORDER]
-INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
-INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
-INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
-INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId);";
+            SELECT  dbo.[Order].OrderId, dbo.[Client].UserName AS ClientName,
+                dbo.[Store].StoreName, 
+                dbo.[Employee].UserName AS EmployeeName,
+                dbo.[Order].OrderTime, dbo.[Order].OrderType, 
+                dbo.[Order].Specifications, dbo.[Order].[Description],
+                dbo.[Order].[Location], dbo.[Order].[Status],
+                dbo.[OrderLine].OrderLineId,
+                dbo.[OrderLine].PartId, dbo.[OrderLine].ServiceId, 
+                dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
+                dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
+                dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
+            FROM ((((dbo.[ORDER]
+                INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
+                INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
+                INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
+                INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId);";
 
             return SqlDataAccess.LoadData<Order2Model>(sql);
         }
@@ -89,23 +89,23 @@ INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId)
 
             //create SQL Query
             string sqlHeader = @"
-SELECT  dbo.[Order].OrderId, dbo.[Client].UserName AS ClientName,
-dbo.[Store].StoreName, 
-dbo.[Employee].UserName AS EmployeeName,
-dbo.[Order].OrderTime, dbo.[Order].OrderType, 
-dbo.[Order].Specifications, dbo.[Order].[Description],
-dbo.[Order].[Location], dbo.[Order].[Status],
-dbo.[OrderLine].OrderLineId,
-dbo.[OrderLine].PartId, dbo.[OrderLine].ServiceId, 
-dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
-dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
-dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
-FROM ((((dbo.[ORDER]
-INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
-INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
-INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
-INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId)
-WHERE dbo.[ORDER].OrderId = @id;";
+            SELECT  dbo.[Order].OrderId, dbo.[Client].UserName AS ClientName,
+                dbo.[Store].StoreName, 
+                dbo.[Employee].UserName AS EmployeeName,
+                dbo.[Order].OrderTime, dbo.[Order].OrderType, 
+                dbo.[Order].Specifications, dbo.[Order].[Description],
+                dbo.[Order].[Location], dbo.[Order].[Status],
+                dbo.[OrderLine].OrderLineId,
+                dbo.[OrderLine].PartId, dbo.[OrderLine].ServiceId, 
+                dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
+                dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
+                dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
+            FROM ((((dbo.[ORDER]
+                INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
+                INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
+                INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
+                INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId)
+            WHERE dbo.[ORDER].OrderId = @id;";
 
             var orderHeader = SqlDataAccess.LoadOne<Order2Model>(sqlHeader, id);
 
@@ -176,13 +176,28 @@ WHERE dbo.[ORDER].OrderId = @id;";
             };
 
             return order;
+        }
 
+        public static OrderLineModel LoadOneLine(int id)
+        {
+
+            string sqlBody = @"
+            SELECT	dbo.[OrderLine].*, dbo.[Part].PartName, dbo.[Service].ServiceName
+            FROM ((dbo.[OrderLine]
+                INNER JOIN dbo.[Part] ON dbo.[OrderLine].PartId = dbo.[Part].PartId)
+                INNER JOIN dbo.[Service] ON dbo.[OrderLine].ServiceId = dbo.[Service].ServiceId) 
+            WHERE OrderId = @id;";
+
+            var orderBody = SqlDataAccess.LoadOne<OrderLineModel>(sqlBody, id);
+
+            return orderBody;
         }
 
         //Update Order Data
         public static void UpdateOrder(int clientId, int storeId, int employeeId, DateTime orderTime,
                                     string orderType, string orderSpecifications, string description,
-                                    string location, string status)
+                                    string location, string status, string clientName, string storeName, 
+                                    string employeeName)
         {
             OrderModel data = new OrderModel
             {
@@ -194,7 +209,11 @@ WHERE dbo.[ORDER].OrderId = @id;";
                 OrderSpecifications = orderSpecifications,
                 Description = description,
                 Location = location, 
-                Status = status
+                Status = status,
+                //------------------
+                ClientName = clientName,
+                StoreName = storeName,
+                EmployeeName = employeeName
             };
 
             //create SQL Query
@@ -202,8 +221,38 @@ WHERE dbo.[ORDER].OrderId = @id;";
                            SET StoreId = @StoreId, EmployeeId = @EmployeeId, 
                                OrderTime = @OrderTime, OrderType = @OrderType, 
                                OrderSpecifications = @OrderSpecifications, Description = @Description
-                               Location = @Location, Status = @Status
+                               Location = @Location, Status = @Status, ClientName = @ClientName,
+                               StoreName = @StoreName, EmployeeName = @EmployeeName
                            WHERE ClientId = @ClientId;";
+
+            SqlDataAccess.UpdateData(sql, data);
+        }
+
+        public static void UpdateOneOrderLine(int orderLineId, int orderId, int partId, int serviceId, int lineNo, string lineDescription, 
+                                                int serviceQty, int partQty, string status, string orderNote, string partName, string serviceName)
+        {
+            OrderLineModel data = new OrderLineModel
+            {
+                OrderLineId = orderLineId,
+                OrderId = orderId,
+                PartId = partId,
+                ServiceId = serviceId,
+                LineNo = lineNo, 
+                LineDescription = lineDescription,
+                ServiceQty = serviceQty,
+                PartQty = partQty,
+                Status = status,
+                OrderNotes = orderNote,
+                PartName = partName,
+                ServiceName = serviceName
+            };
+
+            //create SQL Query
+            string sql = @"Update dbo.[Order]
+                           SET OrderLineId = @OrderLineId, OrderId = @OrderId, PartId = @PartId, ServiceId = @ServiceId, LineNo = @LineNo,
+                               LineDescription = @LineDescription, ServiceQty = @ServiceQty, PartQty = @PartQty, Status = @Status, 
+                               OrderNote = @OrderNote, PartName = @PartName, ServiceName = @ServiceName 
+                           WHERE OrderLineId = @OrderLineId;";
 
             SqlDataAccess.UpdateData(sql, data);
         }

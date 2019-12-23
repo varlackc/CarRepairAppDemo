@@ -18,5 +18,7 @@ namespace CarRepairApp.Models
         public int PartQty { get; set; }
         public string Status { get; set; }
         public string OrderNotes { get; set; }
+        public string PartName { get; set; }
+        public string ServiceName { get; set; }
     }
 }

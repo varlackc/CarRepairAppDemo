@@ -81,36 +81,7 @@ namespace CarRepairApp.Controllers
             var data = LoadOneOrderStructure2(id); //load the data
             OrderStructureModel orders = new OrderStructureModel(); //create a list of projects
             orders.OrderHead.ClientId = data.OrderHeading.ClientId;
-            /*
-            foreach (var order in orders) {
-                order.OrderHead.OrderId = data.OrderHeading.OrderId;
-                order.OrderHead.ClientId = data.OrderHeading.ClientId;
-                order.OrderHead.StoreId = data.OrderHeading.StoreId;
-                order.OrderHead.EmployeeId = data.OrderHeading.EmployeeId;
-                order.OrderHead.OrderTime = data.OrderHeading.OrderTime;
-                order.OrderHead.OrderType = data.OrderHeading.OrderType;
-                order.OrderHead.OrderSpecifications = data.OrderHeading.OrderSpecifications;
-                order.OrderHead.Description = data.OrderHeading.Description;
-                order.OrderHead.Location = data.OrderHeading.Location;
-                order.OrderHead.Status = data.OrderHeading.Status;
-
-               /*
-                foreach (var body in data.OrderBody)
-                {
-                    order.OrderBody.Select(o => new { order }).ToList();
-                }
-                */
-
-                //order.OrderBody = data.OrderBody.FindAll().Where(b => b.OrderId == data.OrderHeading.OrderId).ToList();
-                /*
-                var bodyResult = data.OrderBody.Select(o => new {
-                    Or
-                }).ToList();
-                
-                
-
-            }
-        */
+          
             return View(orders);
         }
 
@@ -118,39 +89,6 @@ namespace CarRepairApp.Controllers
         {
             var data = LoadOneOrderStructure2(id); //load the data
 
-            //transform the data from a Data Library Model to a Car App model
-            /*
-            OrderStructureModel finalOrder = new OrderStructureModel();
-            finalOrder.OrderHead.OrderId = data.OrderHeading.OrderId;
-            finalOrder.OrderHead.OrderId = data.OrderHeading.OrderId;
-            finalOrder.OrderHead.ClientId = data.OrderHeading.ClientId;
-            finalOrder.OrderHead.StoreId = data.OrderHeading.StoreId;
-            finalOrder.OrderHead.EmployeeId = data.OrderHeading.EmployeeId;
-            finalOrder.OrderHead.OrderTime = data.OrderHeading.OrderTime;
-            finalOrder.OrderHead.OrderType = data.OrderHeading.OrderType;
-            finalOrder.OrderHead.OrderSpecifications = data.OrderHeading.OrderSpecifications;
-            finalOrder.OrderHead.Description = data.OrderHeading.Description;
-            finalOrder.OrderHead.Location = data.OrderHeading.Location;
-            finalOrder.OrderHead.Status = data.OrderHeading.Status;
-
-            foreach (var line in data.OrderBody)
-            {
-                finalOrder.OrderBody.Add(new OrderLineModel
-                {
-                    OrderLineId = line.OrderLineId,
-                    OrderId = line.OrderId,
-                    PartId = line.PartId,
-                    ServiceId = line.ServiceId,
-                    LineNo = line.LineNo,
-                    LineDescription = line.LineDescription,
-                    ServiceQty = line.ServiceQty,
-                    PartQty = line.PartQty,
-                    Status = line.Status,
-                    OrderNotes = line.OrderNotes
-
-                });
-            }
-            */
             return View(data);
         }
     
@@ -159,10 +97,6 @@ namespace CarRepairApp.Controllers
         {
             //load the complete order
             var order = LoadOneOrder(id);
-           // var orderLineList = LoadOrderLine(id);
-
-           // OrderLineModel newOrderLine = new OrderLineModel();
-
             
             var FinalOrder = new OrderModel
             {
@@ -211,7 +145,7 @@ namespace CarRepairApp.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var resultModel = LoadOneOrder(id);
+            var resultModel = LoadOneOrder2(id);
             OrderModel orderModel = new OrderModel();
 
             orderModel.OrderId = resultModel.OrderId;
@@ -224,6 +158,10 @@ namespace CarRepairApp.Controllers
             orderModel.Description = resultModel.Description;
             orderModel.Location = resultModel.Location;
             orderModel.Status = resultModel.Status;
+            //---------------------------------------------
+            orderModel.ClientName = resultModel.ClientName;
+            orderModel.StoreName = resultModel.StoreName;
+            orderModel.EmployeeName = resultModel.EmployeeName;
 
             return View(orderModel);
         }
@@ -235,10 +173,46 @@ namespace CarRepairApp.Controllers
             {
                 UpdateOrder(model.ClientId, model.StoreId, model.EmployeeId, model.OrderTime, 
                             model.OrderType, model.OrderSpecifications, model.Description, model.Location,
-                            model.Status);
+                            model.Status, model.ClientName, model.StoreName, model.EmployeeName);
             }
             return RedirectToAction("OrderList");
         }
+
+
+        [HttpGet]
+        public ActionResult UpdateLine(int id)
+        {
+            var resultModel = LoadOneLine(id);
+            OrderLineModel orderModel = new OrderLineModel();
+
+            orderModel.OrderLineId = resultModel.OrderLineId;
+            orderModel.OrderId = resultModel.OrderId;
+            orderModel.PartId = resultModel.PartId;
+            orderModel.ServiceId = resultModel.ServiceId;
+            orderModel.LineNo = resultModel.LineNo;
+            orderModel.LineDescription = resultModel.LineDescription;
+            orderModel.ServiceQty = resultModel.ServiceQty;
+            orderModel.PartQty = resultModel.PartQty;
+            orderModel.Status = resultModel.Status;
+            orderModel.OrderNotes = resultModel.OrderNotes;
+            orderModel.PartName = resultModel.PartName;
+            orderModel.ServiceName = resultModel.ServiceName;
+            //---------------------------------------------
+
+            return View(orderModel);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateLine(OrderLineModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UpdateOneOrderLine(model.OrderLineId, model.OrderId, model.PartId, model.ServiceId, model.LineNo, model.LineDescription,
+                                                model.ServiceQty, model.PartQty, model.Status, model.OrderNotes, model.PartName, model.ServiceName);
+            }
+            return RedirectToAction("OrderList");
+        }
+
 
         public ActionResult DeleteOrderByID(int Id)
         {

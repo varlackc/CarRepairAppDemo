@@ -18,5 +18,11 @@ namespace CarRepairApp.Models
         public string Location { get; set; }
         public string Status { get; set; }
         //public IEnumerable<OrderLineModel> OrderLine { get; set; }
+
+        //---------------------------------
+
+        public string ClientName { get; set; }
+        public string StoreName { get; set; }
+        public string EmployeeName { get; set; }
     }
 }

@@ -89,8 +89,8 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.OrderHeading.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
-    @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
+    @Html.ActionLink("Editar", "Update", new { id = Model.OrderHeading.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
+    
 </p>
 
 <hr/>
@@ -104,9 +104,9 @@
                 No. Linea
             </th>
             @*
-        <th>
-            Linea Pedido ID
-        </th>
+                <th>
+                    Linea Pedido ID
+                </th>
             *@
             <th>
                 Pieza
@@ -133,47 +133,51 @@
         {
             using (Html.BeginForm("DeleteOrderByID", "Order", new { id = item.OrderId /* id=item.PrimaryKey */ }))
             {
-    <tr>
+                <tr>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.LineNo)
-        </td>
-        @*
-        <td>
-            <a onclick="location.href = '@(Url.Action("OrderDetails", "Order", new { id = item.OrderId }))'">
-                @Html.DisplayFor(modelItem => item.OrderLineId)
-            </a>
-        </td>
-        *@
-        <td>
-            @Html.DisplayFor(modelItem => item.PartName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PartQty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServiceName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ServiceQty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LineDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderNotes)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Update", new { id = item.OrderId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
-            @Html.ActionLink("Detalles", "OrderDetails", new { id = item.OrderId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
-
-            <input class="btn btn-danger" type="submit" value="Borrar"
-                   onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderLineId LineNo: @item.LineNo');" />
-        </td>
-    </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LineNo)
+                    </td>
+                    @*
+                        <td>
+                            <a onclick="location.href = '@(Url.Action("OrderDetails", "Order", new { id = item.OrderId }))'">
+                                @Html.DisplayFor(modelItem => item.OrderLineId)
+                            </a>
+                        </td>
+                    *@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PartName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PartQty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceQty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LineDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderNotes)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "UpdateLine", new { id = item.OrderLineId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                        
+                        <input class="btn btn-danger" type="submit" value="Borrar"
+                               onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderLineId LineNo: @item.LineNo');" />
+                    </td>
+                </tr>
             }
         }
 
     </table>
-
+    <br/>
+    @Html.ActionLink("Agregar Nueva Linea De Pedido", "create", null, new { @class = "btn btn-success btn-large" })
+    <br />
+    <br/>
+    <br/>
+    @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
 </div>
