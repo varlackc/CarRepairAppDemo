@@ -175,7 +175,7 @@
 
     </table>
     <br/>
-    @Html.ActionLink("Agregar Nueva Linea De Pedido", "CreateLine", null, new { @class = "btn btn-success btn-large" })
+    @Html.ActionLink("Agregar Nueva Linea De Pedido", "CreateLine", new { id = Model.OrderHeading.OrderId}, new { @class = "btn btn-success btn-large" })
     <br />
     <br/>
     <br/>
