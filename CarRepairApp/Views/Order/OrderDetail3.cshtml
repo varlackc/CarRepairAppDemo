@@ -18,70 +18,70 @@
 
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.OrderId)
+            Pedido ID
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.OrderId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.ClientId)
+            Cliente 
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.OrderHeading.ClientId)
+            @Html.DisplayFor(model => model.OrderHeading.ClientName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.StoreId)
+            Taller 
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.OrderHeading.StoreId)
+            @Html.DisplayFor(model => model.OrderHeading.StoreName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.EmployeeId)
+            Empleado 
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.OrderHeading.EmployeeId)
+            @Html.DisplayFor(model => model.OrderHeading.EmployeeName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.OrderTime)
+            Fecha De Pedido
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.OrderTime)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.OrderType)
+            Tipo De Pedido
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.OrderType)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.OrderSpecifications)
+            Especificaciones
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.OrderSpecifications)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.Description)
+            Descripcion
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.Location)
+            Ubicacion
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.Location)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OrderHeading.Status)
+            Estado
         </dt>
         <dd>
             @Html.DisplayFor(model => model.OrderHeading.Status)
@@ -146,13 +146,13 @@
         </td>
         *@
         <td>
-            @Html.DisplayFor(modelItem => item.PartId)
+            @Html.DisplayFor(modelItem => item.PartName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PartQty)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ServiceId)
+            @Html.DisplayFor(modelItem => item.ServiceName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ServiceQty)
