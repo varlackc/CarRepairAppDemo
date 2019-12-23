@@ -146,16 +146,24 @@ WHERE dbo.[ORDER].OrderId = @id;";
         {
 
             //create SQL Query
-            string sqlHeader = @"SELECT * 
-                           FROM dbo.[Order]
-                           WHERE OrderId = @id;";
+            string sqlHeader = @"
+
+            SELECT dbo.[Order].* , dbo.[Client].UserName AS ClientName,
+                dbo.[Store].StoreName, 
+                dbo.[Employee].UserName AS EmployeeName
+            FROM (((dbo.[Order]
+                INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
+                INNER JOIN dbo.[Store] ON dbo.[Order].StoreId = dbo.[Store].StoreId)
+                INNER JOIN dbo.[Employee] ON dbo.[Order].EmployeeId = dbo.[Employee].EmployeeId )
+            WHERE dbo.[Order].OrderId = @id
+                                            ;";
 
             string sqlBody = @"
-SELECT	dbo.[OrderLine].*, dbo.[Part].PartName, dbo.[Service].ServiceName
-FROM ((dbo.[OrderLine]
-INNER JOIN dbo.[Part] ON dbo.[OrderLine].PartId = dbo.[Part].PartId)
-INNER JOIN dbo.[Service] ON dbo.[OrderLine].ServiceId = dbo.[Service].ServiceId) 
-WHERE OrderId = @id;";
+            SELECT	dbo.[OrderLine].*, dbo.[Part].PartName, dbo.[Service].ServiceName
+            FROM ((dbo.[OrderLine]
+                INNER JOIN dbo.[Part] ON dbo.[OrderLine].PartId = dbo.[Part].PartId)
+                INNER JOIN dbo.[Service] ON dbo.[OrderLine].ServiceId = dbo.[Service].ServiceId) 
+            WHERE OrderId = @id;";
 
             var orderHeader = SqlDataAccess.LoadOne<OrderModel>(sqlHeader, id);
 
