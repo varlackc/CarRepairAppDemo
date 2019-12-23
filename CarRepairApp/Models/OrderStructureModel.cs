@@ -10,6 +10,6 @@ namespace CarRepairApp.Models
     public class OrderStructureModel
     {
         public OrderModel OrderHead { get; set; }
-        public List<OrderLineModel> OrderBody { get; set; }
+        public IEnumerable<OrderLineModel> OrderBody { get; set; }
     }
 }
