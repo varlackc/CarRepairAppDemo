@@ -80,7 +80,7 @@ namespace CarRepairApp.Controllers
         {
             var data = LoadOneOrderStructure2(id); //load the data
             OrderStructureModel orders = new OrderStructureModel(); //create a list of projects
-            orders.OrderHead.ClientId = data.OrderHeading.ClientId;
+            
           
             return View(orders);
         }
