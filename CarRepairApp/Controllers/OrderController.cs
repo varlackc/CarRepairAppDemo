@@ -78,7 +78,7 @@ namespace CarRepairApp.Controllers
 
         public ActionResult OrderList3(int id)
         {
-            var data = LoadOneOrderStructure2(id); 
+            
           
             
           
