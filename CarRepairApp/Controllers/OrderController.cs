@@ -76,9 +76,6 @@ namespace CarRepairApp.Controllers
             return View(orders);
         }
 
-        public ActionResult OrderList3(int id)
-        {         
-        }
 
         public ActionResult OrderDetail3(int id)
         {
