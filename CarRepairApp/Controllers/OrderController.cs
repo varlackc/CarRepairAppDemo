@@ -79,7 +79,7 @@ namespace CarRepairApp.Controllers
         public ActionResult OrderList3(int id)
         {
             var data = LoadOneOrderStructure2(id); //load the data
-            OrderStructureModel orders = new OrderStructureModel(); //create a list of projects
+            OrderStructureModel orders = new OrderStructureModel(); 
             
           
             return View(orders);
