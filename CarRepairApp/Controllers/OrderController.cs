@@ -237,5 +237,18 @@ namespace CarRepairApp.Controllers
             return RedirectToAction("OrderList");
         }
 
+
+        public ActionResult DeleteOrderLineByOrder(int Id)
+        {
+            DeleteOrderLines(Id);
+            return RedirectToAction("OrderList");
+        }
+
+        public ActionResult DeleteOrderLineByID(int Id)
+        {
+            DeleteOrderLineID(Id);
+            return RedirectToAction("OrderList");
+        }
+
     }
 }

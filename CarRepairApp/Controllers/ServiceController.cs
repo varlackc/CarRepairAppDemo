@@ -64,6 +64,7 @@ namespace CarRepairApp.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Update(int id)
         {
             var resultModel = LoadOneService(id); //get the results from the databaase

@@ -295,5 +295,24 @@ namespace DataLibrary.BusinessLogic
             //Call the sql data access to delete the User entry
             SqlDataAccess.DeleteData(sql, id);
         }
+
+        public static void DeleteOrderLines(int id)
+        {
+            //create the sql command
+            string sql = @"DELETE FROM dbo.[OrderLine] WHERE OrderId = @id;";
+
+            //Call the sql data access to delete the User entry
+            SqlDataAccess.DeleteData(sql, id);
+        }
+
+        public static void DeleteOrderLineID(int id)
+        {
+            //create the sql command
+            string sql = @"DELETE FROM dbo.[OrderLine] WHERE OrderLineId = @id;";
+
+            //Call the sql data access to delete the User entry
+            SqlDataAccess.DeleteData(sql, id);
+        }
+
     }
 }

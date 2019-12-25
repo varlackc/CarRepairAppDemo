@@ -1,0 +1,120 @@
+﻿@model DataLibrary.Models.OrderLineModel
+
+@{
+    ViewBag.Title = "DeleteOrderLineByOrder";
+}
+
+<h2>DeleteOrderLineByOrder</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OrderLineModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderLineId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderLineId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
