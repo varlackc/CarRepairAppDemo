@@ -135,9 +135,11 @@ namespace CarRepairApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateLine()
+        public ActionResult CreateLine(int id)
         {
             ViewBag.Message = "OrderLine";
+            //Pass The View Bag Id As The Default Value
+            ViewBag.Id = id;
             return View();
         }
 

@@ -15,7 +15,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>OrderLineModel</h4>
+        <h4>(Demo) OrderLineModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*
@@ -31,7 +31,8 @@
         <div class="form-group">
             @Html.Label("Pedido ID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
+                <!-- Pass the view Bag ID As A Default Value -->
+                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Id } })
                 @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
             </div>
         </div>
