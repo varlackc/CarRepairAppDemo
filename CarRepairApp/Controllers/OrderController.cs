@@ -77,7 +77,7 @@ namespace CarRepairApp.Controllers
         }
 
 
-        public ActionResult OrderDetail3(int id)
+        public ActionResult OrderDetailByID(int id)
         {
             var data = LoadOneOrderStructure2(id); //load the data
 
@@ -201,6 +201,8 @@ namespace CarRepairApp.Controllers
         [HttpGet]
         public ActionResult UpdateLine(int id)
         {
+            ViewBag.Id = id; //Get ID Value For Later Reuse
+
             var resultModel = LoadOneLine(id);
             OrderLineModel orderModel = new OrderLineModel();
 

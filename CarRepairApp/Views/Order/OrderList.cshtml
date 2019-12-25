@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<h2>Lista De Pedidos</h2>
+<h2>Lista De Ordenes</h2>
 
 <table class="table">
     <tr>
@@ -49,12 +49,12 @@
         {
 <tr>
     <td>
-        <a onclick="location.href = '@(Url.Action("OrderDetail3", "Order", new { id = item.OrderId }))'">
+        <a onclick="location.href = '@(Url.Action("OrderDetailByID", "Order", new { id = item.OrderId }))'">
             @Html.DisplayFor(modelItem => item.OrderId)
         </a>
     </td>
     <td>
-        <a onclick="location.href = '@(Url.Action("OrderDetail3", "Order", new { id = item.OrderId }))'">
+        <a onclick="location.href = '@(Url.Action("OrderDetailByID", "Order", new { id = item.OrderId }))'">
             @Html.DisplayFor(modelItem => item.OrderType)
         </a>
     </td>
@@ -75,7 +75,6 @@
         @Html.DisplayFor(modelItem => item.Status)
     </td>
     <td>
-        @Html.ActionLink("Editar", "Update", new { id = item.OrderId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
         @Html.ActionLink("Detalles", "OrderDetails", new { id = item.OrderId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
 
         <input class="btn btn-danger" type="submit" value="Borrar"

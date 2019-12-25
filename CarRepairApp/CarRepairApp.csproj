@@ -336,7 +336,7 @@
     <Content Include="Views\Order\Update.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Order\OrderList2.cshtml" />
-    <Content Include="Views\Order\OrderDetail3.cshtml" />
+    <Content Include="Views\Order\OrderDetailByID.cshtml" />
     <Content Include="Views\Order\UpdateLine.cshtml" />
     <Content Include="Views\Order\CreateLine.cshtml" />
     <Content Include="Views\Order\DeleteOrderLineByOrder.cshtml" />
