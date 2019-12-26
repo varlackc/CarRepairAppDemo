@@ -12,6 +12,7 @@ namespace DataLibrary.BusinessLogic
                                     string orderType, string orderSpecifications, string description, 
                                     string location, string status)
         {
+
             OrderModel data = new OrderModel
             {
                 ClientId = clientId, 
@@ -35,10 +36,25 @@ namespace DataLibrary.BusinessLogic
         }
 
         //Create new Order
-        public static int CreateOrderLine(int orderLineId, int orderId, int partId, int serviceId,
-                                    int lineNo, string lineDescription, int serviceQty, int partQty,
+        public static int CreateOrderLine(int orderLineId, int orderId, int? partId, int? serviceId,
+                                    int lineNo, string lineDescription, int? serviceQty, int? partQty,
                                     string status, string orderNotes, string partName, string serviceName)
         {
+
+
+            //In case of the values being null sets the values
+            var partId2 = (int?)partId;
+            if (partId2 == null)
+            {
+                partId = 0;
+            }
+
+            var serviceId2 = (int?)serviceId;
+            if (serviceId2 == null)
+            {
+                serviceId = 0;
+            }
+
             OrderLineModel data = new OrderLineModel
             {
                 OrderLineId = orderLineId,
@@ -54,10 +70,11 @@ namespace DataLibrary.BusinessLogic
                 PartName = partName,
                 ServiceName = serviceName
             };
-            string sqlBody = @"INSERT INTO dbo.[Order] (OrderLineId, OrderId, PartId, ServiceId, LineNo, LineDescription, ServiceQty, PartQty, 
-                                                            [Status], OrderNotes, PartName, ServiceName)
-                                        VALUES (@OrderLineId, @OrderId, @PartId, @ServiceId, @LineNo, @LineDescription, @ServiceQty, @PartQty, 
-                                                    @Status, @OrderNotes, @PartName, @ServiceName);";
+            string sqlBody = @"INSERT INTO dbo.[OrderLine] (dbo.[OrderLine].[OrderId], dbo.[OrderLine].[PartId], dbo.[OrderLine].[ServiceId], dbo.[OrderLine].[LineNo], [LineDescription], [ServiceQty], [PartQty], 
+                                                            [Status], [OrderNotes])
+
+                                        VALUES (@OrderId, @PartId, @ServiceId, @LineNo, @LineDescription, @ServiceQty, @PartQty, 
+                                                    @Status, @OrderNotes);";
 
             return SqlDataAccess.SaveData(sqlBody, data);
 
@@ -130,12 +147,8 @@ namespace DataLibrary.BusinessLogic
                 dbo.[OrderLine].[LineNo], dbo.[OrderLine].LineDescription,
                 dbo.[OrderLine].ServiceQty, dbo.[OrderLine].PartQty,
                 dbo.[OrderLine].[Status], dbo.[OrderLine].OrderNotes
-            FROM ((((dbo.[ORDER]
-                INNER JOIN dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].OrderId)
-                INNER JOIN dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId)
-                INNER JOIN dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId)
-                INNER JOIN dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId)
-            WHERE dbo.[ORDER].OrderId = @id;";
+            FROM ((((dbo.[ORDER] LEFT OUTER dbo.[ORDERLINE] ON dbo.[ORDER].OrderId = dbo.[ORDERLINE].Order) LEFT OUTER dbo.[Client] ON dbo.[Order].ClientId = dbo.[Client].ClientId) LEFT OUTER dbo.[Store] ON dbo.[ORDER].StoreId = dbo.[Store].StoreId) LEFT OUTER dbo.[Employee] ON dbo.[ORDER].EmployeeId = dbo.[Employee].EmployeeId)
+            WHERE dbo.[ORDER].OrderId = @id ";
 
             var orderHeader = SqlDataAccess.LoadOne<Order2Model>(sqlHeader, id);
 
@@ -228,6 +241,7 @@ namespace DataLibrary.BusinessLogic
                                     string location, string status, string clientName, string storeName, 
                                     string employeeName)
         {
+
             OrderModel data = new OrderModel
             {
                 ClientId = clientId,
@@ -257,9 +271,21 @@ namespace DataLibrary.BusinessLogic
             SqlDataAccess.UpdateData(sql, data);
         }
 
-        public static void UpdateOneOrderLine(int orderLineId, int orderId, int partId, int serviceId, int lineNo, string lineDescription, 
-                                                int serviceQty, int partQty, string status, string orderNote, string partName, string serviceName)
+        public static void UpdateOneOrderLine(int orderLineId, int orderId, int? partId, int? serviceId, int lineNo, string lineDescription, 
+                                                int? serviceQty, int? partQty, string status, string orderNote, string partName, string serviceName)
         {
+            //In case of the values being null sets the values
+            var partId2 = (int?) partId;
+            if (partId2 == null) {
+                partId = 0;
+            }
+
+            var serviceId2 = (int?)serviceId;
+            if (serviceId2 == null)
+            {
+                serviceId = 0;
+            }
+
             OrderLineModel data = new OrderLineModel
             {
                 OrderLineId = orderLineId,
