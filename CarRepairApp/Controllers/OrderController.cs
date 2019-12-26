@@ -164,7 +164,7 @@ namespace CarRepairApp.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var resultModel = LoadOneOrder2(id);
+            var resultModel = LoadOneOrder(id);
             OrderModel orderModel = new OrderModel();
 
             orderModel.OrderId = resultModel.OrderId;
