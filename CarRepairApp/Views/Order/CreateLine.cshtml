@@ -15,7 +15,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>(Demo) OrderLineModel</h4>
+        <h4>(Demo) OrderLineModel @ViewBag.Id</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*
@@ -73,7 +73,7 @@
             @Html.Label("Cantidad De Servicio", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ServiceQty, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ServiceQty, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ServiceQty, "", new { @class = "text-danger", @Value = 0 })
             </div>
         </div>
 
@@ -81,7 +81,7 @@
             @Html.Label("Cantidad De Piezas", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PartQty, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PartQty, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PartQty, "", new { @class = "text-danger", @Value = 0 })
             </div>
         </div>
 
