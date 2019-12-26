@@ -304,9 +304,9 @@ namespace DataLibrary.BusinessLogic
 
             //create SQL Query
             string sql = @"Update dbo.[OrderLine]
-                           SET OrderId = @OrderId, PartId = @PartId, ServiceId = @ServiceId, LineNo = @LineNo,
-                               LineDescription = @LineDescription, ServiceQty = @ServiceQty, PartQty = @PartQty, Status = @Status, 
-                               OrderNote = @OrderNote, PartName = @PartName, ServiceName = @ServiceName 
+                           SET OrderId = @OrderId, PartId = @PartId, ServiceId = @ServiceId, [LineNo] = @LineNo,
+                               LineDescription = @LineDescription, ServiceQty = @ServiceQty, PartQty = @PartQty, [Status] = @Status, 
+                               OrderNotes = @OrderNotes 
                            WHERE OrderLineId = @OrderLineId;";
 
             SqlDataAccess.UpdateData(sql, data);
