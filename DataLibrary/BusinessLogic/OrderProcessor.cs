@@ -226,9 +226,9 @@ namespace DataLibrary.BusinessLogic
             string sqlBody = @"
             SELECT	dbo.[OrderLine].*, dbo.[Part].PartName, dbo.[Service].ServiceName
             FROM ((dbo.[OrderLine]
-                INNER JOIN dbo.[Part] ON dbo.[OrderLine].PartId = dbo.[Part].PartId)
-                INNER JOIN dbo.[Service] ON dbo.[OrderLine].ServiceId = dbo.[Service].ServiceId) 
-            WHERE OrderId = @id;";
+                LEFT OUTER JOIN dbo.[Part] ON dbo.[OrderLine].PartId = dbo.[Part].PartId)
+                LEFT OUTER JOIN dbo.[Service] ON dbo.[OrderLine].ServiceId = dbo.[Service].ServiceId) 
+            WHERE dbo.[OrderLine].OrderLineId = @id;";
 
             var orderBody = SqlDataAccess.LoadOne<OrderLineModel>(sqlBody, id);
 
@@ -260,7 +260,7 @@ namespace DataLibrary.BusinessLogic
             };
 
             //create SQL Query
-            string sql = @"Update dbo.[Order]
+            string sql = @"Update dbo.[OrderLine]
                            SET StoreId = @StoreId, EmployeeId = @EmployeeId, 
                                OrderTime = @OrderTime, OrderType = @OrderType, 
                                OrderSpecifications = @OrderSpecifications, Description = @Description
@@ -303,8 +303,8 @@ namespace DataLibrary.BusinessLogic
             };
 
             //create SQL Query
-            string sql = @"Update dbo.[Order]
-                           SET OrderLineId = @OrderLineId, OrderId = @OrderId, PartId = @PartId, ServiceId = @ServiceId, LineNo = @LineNo,
+            string sql = @"Update dbo.[OrderLine]
+                           SET OrderId = @OrderId, PartId = @PartId, ServiceId = @ServiceId, LineNo = @LineNo,
                                LineDescription = @LineDescription, ServiceQty = @ServiceQty, PartQty = @PartQty, Status = @Status, 
                                OrderNote = @OrderNote, PartName = @PartName, ServiceName = @ServiceName 
                            WHERE OrderLineId = @OrderLineId;";
