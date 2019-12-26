@@ -155,7 +155,7 @@ namespace CarRepairApp.Controllers
                                     model.PartQty, model.Status, model.OrderNotes, model.PartName, 
                                     model.ServiceName);
 
-                return RedirectToAction("OrderList");
+                return RedirectToAction("OrderDetailByID", new { id = model.OrderId });
             }
             ViewBag.Message = "Order List";
             return View();
@@ -231,7 +231,7 @@ namespace CarRepairApp.Controllers
                 UpdateOneOrderLine(model.OrderLineId, model.OrderId, model.PartId, model.ServiceId, model.LineNo, model.LineDescription,
                                                 model.ServiceQty, model.PartQty, model.Status, model.OrderNotes, model.PartName, model.ServiceName);
             }
-            return RedirectToAction("OrderList");
+            return RedirectToAction("OrderDetailByID", new { id = model.OrderId });
         }
 
 
