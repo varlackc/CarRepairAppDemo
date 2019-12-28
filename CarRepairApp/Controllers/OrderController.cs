@@ -157,7 +157,7 @@ namespace CarRepairApp.Controllers
 
                 return RedirectToAction("OrderDetailByID", new { id = model.OrderId });
             }
-            ViewBag.Message = "Order List";
+            ViewBag.Message = "Order Detail";
             return View();
         }
 
