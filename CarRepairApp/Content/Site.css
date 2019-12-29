@@ -1,0 +1,237 @@
+﻿
+body {
+    background-image: url('/Content/background-B.jpg');
+    padding-bottom: 20px;
+    background-color: lightgoldenrodyellow;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+thead tr th {
+    color: #0c0f3a;
+    background-color: rgba(51, 102, 153, 100 );
+    font-size: 15px;
+}
+
+
+tbody tr td {
+    font-weight: bold;
+}
+
+tbody tr td {
+    text-align: right;
+}
+
+    tbody tr td.left {
+        text-align: left;
+        white-space: nowrap;
+    }
+
+tbody tr {
+    background-color: rgba(120, 161, 188, 0.2);
+}
+
+    tbody tr:hover {
+        background-color: khaki;
+        color: #003813;
+    }
+
+.Montisa-Logo {
+    height: 50px;
+}
+
+.jumbotron {
+    background: url('/Content/photo_big-wheel-keep-on-turnin_A.jpg') no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.content-head {
+    background-color: rgba(51, 102, 153, 0.8 );
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    color: #3c2300;
+}
+
+.content-body {
+    background-color: rgba(51, 102, 153, 0.2 );
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.content-title {
+    text-align: center;
+    font-weight: bold;
+    color: #acc7e2;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.no-background {
+    background-color: transparent;
+}
+
+.table-error {
+    color: #ffd0d0 !important;
+    background-color: darkred;
+}
+
+    .table-error a {
+        color: #040d28 !important;
+    }
+
+    .table-error:hover {
+        background-color: khaki;
+        color: #230000 !important;
+    }
+
+.pseudo-header {
+    text-align: center;
+    color: #0c0f3a;
+    background-color: rgba(51, 102, 153, 100 );
+    font-size: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: whitesmoke;
+    padding: 5px;
+}
+
+    .pseudo-header:hover {
+        background-color: rgba(51, 102, 153, 100 );
+        border-color: whitesmoke;
+    }
+
+    .pseudo-header:visited {
+        background-color: rgba(51, 102, 153, 100 );
+        border-color: whitesmoke;
+    }
+
+    .pseudo-header:link {
+        background-color: rgba(51, 102, 153, 100 );
+        border-color: whitesmoke;
+    }
+
+    .pseudo-header:Active {
+        background-color: rgba(51, 102, 153, 100 );
+        border-color: whitesmoke;
+    }
+
+    .pseudo-header:checked {
+        background-color: rgba(51, 102, 153, 100 );
+        border-color: whitesmoke;
+    }
+
+.pseudo-body {
+    font-weight: bold;
+    background-color: rgba(120, 161, 188, 0.2);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.pseudo-header-operation {
+    font-weight: bold;
+    background-color: rgba(60, 51, 118, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+
+    .pseudo-header-operation:hover {
+        font-weight: bold;
+        background-color: rgba(60, 51, 118, 0.5);
+        border-style: solid;
+        border-color: whitesmoke;
+        border-width: 1px;
+    }
+
+    .pseudo-header-operation a:link {
+        font-weight: bold;
+        color: rgba(5, 34, 56, 100);
+        background-color: rgb(60, 51, 118);
+        border-style: solid;
+        border-color: whitesmoke;
+        border-width: 1px;
+    }
+
+    .pseudo-header-operation:visited {
+        font-weight: bold;
+        background-color: rgba(60, 51, 118, 0.5);
+        border-style: solid;
+        border-color: whitesmoke;
+        border-width: 1px;
+    }
+
+.pseudo-body-operation {
+    font-weight: bold;
+    background-color: rgba(92, 84, 146, 0.2);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.pseudo-header-requirement {
+    font-weight: bold;
+    background-color: rgba(19, 95, 45, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+
+    .pseudo-header-requirement:hover {
+        font-weight: bold;
+        background-color: rgba(19, 95, 45, 0.5);
+        border-style: solid;
+        border-color: whitesmoke;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+    .pseudo-header-requirement:active {
+        font-weight: bold;
+        background-color: rgba(19, 95, 45, 0.5);
+        border-style: solid;
+        border-color: whitesmoke;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+    .pseudo-header-requirement:link {
+        font-weight: bold;
+        background-color: rgba(19, 95, 45, 0.5);
+        border-style: solid;
+        border-color: whitesmoke;
+        border-width: 1px;
+        padding: 5px;
+    }
+
+.pseudo-body-requirement {
+    font-weight: bold;
+    background-color: rgba(126, 186, 146, 0.2);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.pseudo-row:hover div {
+    background-color: khaki;
+}
