@@ -1,6 +1,6 @@
 ﻿
 body {
-    background-image: url('/Content/background-B.jpg');
+    background-image: url('/Content/img/BackGround_1.jpeg');
     padding-bottom: 20px;
     background-color: lightgoldenrodyellow;
 }
@@ -8,6 +8,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 .dl-horizontal dt {
@@ -18,6 +19,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+
+
 }
 
 thead tr th {
@@ -29,29 +32,33 @@ thead tr th {
 
 tbody tr td {
     font-weight: bold;
+
 }
 
 tbody tr td {
     text-align: right;
 }
 
-    tbody tr td.left {
-        text-align: left;
-        white-space: nowrap;
-    }
+tbody tr td.left {
+    text-align: left;
+    white-space: nowrap;
+}
 
-tbody tr {
+tbody tr{
     background-color: rgba(120, 161, 188, 0.2);
+
+}
+tbody tr:hover {
+    background-color: khaki;
+    color: #003813;
 }
 
-    tbody tr:hover {
-        background-color: khaki;
-        color: #003813;
-    }
-
-.Montisa-Logo {
-    height: 50px;
-}
+.Montisa-Logo 
+{
+   
+   height: 50px;
+     
+ }
 
 .jumbotron {
     background: url('/Content/photo_big-wheel-keep-on-turnin_A.jpg') no-repeat center center;
@@ -71,6 +78,7 @@ tbody tr {
     border-bottom-right-radius: 10px;
     font-weight: bold;
     font-size: 15px;
+
 }
 
 .content-title {
@@ -90,14 +98,14 @@ tbody tr {
     background-color: darkred;
 }
 
-    .table-error a {
+.table-error a {
         color: #040d28 !important;
-    }
+}
 
-    .table-error:hover {
+.table-error:hover {
         background-color: khaki;
         color: #230000 !important;
-    }
+}
 
 .pseudo-header {
     text-align: center;
@@ -110,30 +118,27 @@ tbody tr {
     padding: 5px;
 }
 
-    .pseudo-header:hover {
-        background-color: rgba(51, 102, 153, 100 );
-        border-color: whitesmoke;
-    }
+ .pseudo-header:hover {
+     background-color: rgba(51, 102, 153, 100 );
+     border-color: whitesmoke;
+ }
 
-    .pseudo-header:visited {
-        background-color: rgba(51, 102, 153, 100 );
-        border-color: whitesmoke;
-    }
-
-    .pseudo-header:link {
-        background-color: rgba(51, 102, 153, 100 );
-        border-color: whitesmoke;
-    }
-
-    .pseudo-header:Active {
-        background-color: rgba(51, 102, 153, 100 );
-        border-color: whitesmoke;
-    }
-
-    .pseudo-header:checked {
-        background-color: rgba(51, 102, 153, 100 );
-        border-color: whitesmoke;
-    }
+ .pseudo-header:visited {
+     background-color: rgba(51, 102, 153, 100 );
+     border-color: whitesmoke;
+ }
+ .pseudo-header:link {
+    background-color: rgba(51, 102, 153, 100 );
+   border-color: whitesmoke;
+}
+.pseudo-header:Active {
+    background-color: rgba(51, 102, 153, 100 );
+    border-color: whitesmoke;
+}
+.pseudo-header:checked {
+    background-color: rgba(51, 102, 153, 100 );
+    border-color: whitesmoke;
+}
 
 .pseudo-body {
     font-weight: bold;
@@ -153,13 +158,13 @@ tbody tr {
     padding: 5px;
 }
 
-    .pseudo-header-operation:hover {
-        font-weight: bold;
-        background-color: rgba(60, 51, 118, 0.5);
-        border-style: solid;
-        border-color: whitesmoke;
-        border-width: 1px;
-    }
+.pseudo-header-operation:hover {
+    font-weight: bold;
+    background-color: rgba(60, 51, 118, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+}
 
     .pseudo-header-operation a:link {
         font-weight: bold;
@@ -170,13 +175,13 @@ tbody tr {
         border-width: 1px;
     }
 
-    .pseudo-header-operation:visited {
-        font-weight: bold;
-        background-color: rgba(60, 51, 118, 0.5);
-        border-style: solid;
-        border-color: whitesmoke;
-        border-width: 1px;
-    }
+.pseudo-header-operation:visited {
+    font-weight: bold;
+    background-color: rgba(60, 51, 118, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+}
 
 .pseudo-body-operation {
     font-weight: bold;
@@ -195,34 +200,30 @@ tbody tr {
     border-width: 1px;
     padding: 5px;
 }
-
-    .pseudo-header-requirement:hover {
-        font-weight: bold;
-        background-color: rgba(19, 95, 45, 0.5);
-        border-style: solid;
-        border-color: whitesmoke;
-        border-width: 1px;
-        padding: 5px;
-    }
-
-    .pseudo-header-requirement:active {
-        font-weight: bold;
-        background-color: rgba(19, 95, 45, 0.5);
-        border-style: solid;
-        border-color: whitesmoke;
-        border-width: 1px;
-        padding: 5px;
-    }
-
-    .pseudo-header-requirement:link {
-        font-weight: bold;
-        background-color: rgba(19, 95, 45, 0.5);
-        border-style: solid;
-        border-color: whitesmoke;
-        border-width: 1px;
-        padding: 5px;
-    }
-
+.pseudo-header-requirement:hover {
+    font-weight: bold;
+    background-color: rgba(19, 95, 45, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+.pseudo-header-requirement:active {
+    font-weight: bold;
+    background-color: rgba(19, 95, 45, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
+.pseudo-header-requirement:link {
+    font-weight: bold;
+    background-color: rgba(19, 95, 45, 0.5);
+    border-style: solid;
+    border-color: whitesmoke;
+    border-width: 1px;
+    padding: 5px;
+}
 .pseudo-body-requirement {
     font-weight: bold;
     background-color: rgba(126, 186, 146, 0.2);
@@ -231,7 +232,8 @@ tbody tr {
     border-width: 1px;
     padding: 5px;
 }
-
 .pseudo-row:hover div {
     background-color: khaki;
+    
 }
+
