@@ -70,6 +70,7 @@ tbody tr:hover {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     color: #3c2300;
+    text-align: center;
 }
 
 .content-body {
