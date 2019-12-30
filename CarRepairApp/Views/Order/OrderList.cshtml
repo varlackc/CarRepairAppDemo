@@ -7,85 +7,91 @@
 <br />
 <br />
 <br />
+<br/>
 
-<h2>Lista De Ordenes</h2>
+<div class="content-head content-title">
+    <br/>
+    <h2><i class="fa fa-handshake-o" aria-hidden="true"></i> Lista De Ordenes</h2>
+    <br/>
+</div>
 
-<table class="table">
-    <tr>
-        <th>
-            @* @Html.DisplayNameFor(model => model.OrderId) *@
-            Pedido ID
-        </th>
-        <th>
-            @*  @Html.DisplayNameFor(model => model.OrderType) *@
-            Tipo de Pedido
-        </th>
-        <th>
-            @* @Html.DisplayNameFor(model => model.OrderTime) *@
-            Fecha De Pedido
-        </th>
-        <th>
-            @*  @Html.DisplayNameFor(model => model.OrderSpecifications) *@
-            Especificacion
-        </th>
-        <th>
-            @*  @Html.DisplayNameFor(model => model.Description) *@
-            Descripción
-        </th>
-        <th>
-            @*  @Html.DisplayNameFor(model => model.Location) *@
-            Ubicación
-        </th>
-        <th>
-            @*  @Html.DisplayNameFor(model => model.Status) *@
-            Estado
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        using (Html.BeginForm("DeleteOrderByID", "Order", new { id = item.OrderId /* id=item.PrimaryKey */ }))
+    <table class="table">
+        <tr class="content-body">
+            <th>
+                @* @Html.DisplayNameFor(model => model.OrderId) *@
+                Pedido ID
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.OrderType) *@
+                Tipo de Pedido
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.OrderTime) *@
+                Fecha De Pedido
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.OrderSpecifications) *@
+                Especificacion
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.Description) *@
+                Descripción
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.Location) *@
+                Ubicación
+            </th>
+            <th>
+                @*  @Html.DisplayNameFor(model => model.Status) *@
+                Estado
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
         {
-<tr>
-    <td>
-        <a onclick="location.href = '@(Url.Action("OrderDetailByID", "Order", new { id = item.OrderId }))'">
-            @Html.DisplayFor(modelItem => item.OrderId)
-        </a>
-    </td>
-    <td>
-        <a onclick="location.href = '@(Url.Action("OrderDetailByID", "Order", new { id = item.OrderId }))'">
-            @Html.DisplayFor(modelItem => item.OrderType)
-        </a>
-    </td>
+            using (Html.BeginForm("DeleteOrderByID", "Order", new { id = item.OrderId /* id=item.PrimaryKey */ }))
+            {
+                <tr>
+                    <td>
+                        <a onclick="location.href = '@(Url.Action("OrderDetailByID", "Order", new { id = item.OrderId }))'">
+                            @Html.DisplayFor(modelItem => item.OrderId)
+                        </a>
+                    </td>
+                    <td>
+                        <a onclick="location.href = '@(Url.Action("OrderDetailByID", "Order", new { id = item.OrderId }))'">
+                            @Html.DisplayFor(modelItem => item.OrderType)
+                        </a>
+                    </td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.OrderTime)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.OrderSpecifications)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Location)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Status)
-    </td>
-    <td>
-        @Html.ActionLink("Detalles", "OrderDetails", new { id = item.OrderId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderSpecifications)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Detalles", "OrderDetailByID", new { id = item.OrderId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
 
-        <input class="btn btn-danger" type="submit" value="Borrar"
-               onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderId Order: @item.OrderType');" />
-    </td>
-</tr>
+                        <input class="btn btn-danger" type="submit" value="Borrar"
+                               onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderId Order: @item.OrderType');" />
+                    </td>
+                </tr>
+            }
         }
-    }
 
-</table>
+    </table>
 
-<p>
-    @Html.ActionLink("Agregar Nuevo Pedido", "create", null, new { @class = "btn btn-primary btn-large" })
-</p>
+    <p>
+        @Html.ActionLink("Agregar Nuevo Pedido", "create", null, new { @class = "btn btn-primary btn-large" })
+    </p>

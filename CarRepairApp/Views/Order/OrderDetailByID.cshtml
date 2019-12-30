@@ -4,180 +4,190 @@
     ViewBag.Title = "OrderDetailByID";
 }
 
-<br/>
-<br/>
-<br/>
-
-<h2>Detalles Del Pedido</h2>
+<br />
+<br />
+<br />
+<br />
 
 <div>
-    <h4>(Demo) OrderStructureModel</h4>
+    <div class="content-head content-title">
+        <br />
+        <h2> <i class="fa fa-handshake-o" aria-hidden="true"></i> Detalles Del Pedido</h2>
+
+
+        <h4>(Demo) OrderStructureModel</h4>
+        <br/>
+    </div>
+        <hr />
+
+        <dl class="dl-horizontal content-body">
+
+
+            <dt>
+                Pedido ID
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.OrderId)
+            </dd>
+
+            <dt>
+                Cliente
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.ClientName)
+            </dd>
+
+            <dt>
+                Taller
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.StoreName)
+            </dd>
+
+            <dt>
+                Empleado
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.EmployeeName)
+            </dd>
+
+            <dt>
+                Fecha De Pedido
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.OrderTime)
+            </dd>
+
+            <dt>
+                Tipo De Pedido
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.OrderType)
+            </dd>
+
+            <dt>
+                Especificaciones
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.OrderSpecifications)
+            </dd>
+
+            <dt>
+                Descripcion
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.Description)
+            </dd>
+
+            <dt>
+                Ubicacion
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.Location)
+            </dd>
+
+            <dt>
+                Estado
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderHeading.Status)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Update", new { id = Model.OrderHeading.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
+
+    </p>
+
     <hr />
 
-    <dl class="dl-horizontal">
+    <div>
 
+        <table class="table">
+            <tr class="content-body">
 
-        <dt>
-            Pedido ID
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.OrderId)
-        </dd>
-
-        <dt>
-            Cliente 
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.ClientName)
-        </dd>
-
-        <dt>
-            Taller 
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.StoreName)
-        </dd>
-
-        <dt>
-            Empleado 
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.EmployeeName)
-        </dd>
-
-        <dt>
-            Fecha De Pedido
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.OrderTime)
-        </dd>
-
-        <dt>
-            Tipo De Pedido
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.OrderType)
-        </dd>
-
-        <dt>
-            Especificaciones
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.OrderSpecifications)
-        </dd>
-
-        <dt>
-            Descripcion
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.Description)
-        </dd>
-
-        <dt>
-            Ubicacion
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.Location)
-        </dd>
-
-        <dt>
-            Estado
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OrderHeading.Status)
-        </dd>
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Editar", "Update", new { id = Model.OrderHeading.OrderId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
-    
-</p>
-
-<hr/>
-
-<div>
-
-    <table class="table">
-        <tr>
-
-            <th>
-                No. Linea
-            </th>
-            @*
                 <th>
-                    Linea Pedido ID
+                    No. Linea
                 </th>
-            *@
-            <th>
-                Pieza
-            </th>
-            <th>
-                Cant. Piezas
-            </th>
-            <th>
-                Servicio
-            </th>
-            <th>
-                Cant. Servicio
-            </th>
-            <th>
-                Descripcion
-            </th>
-            <th>
-                Notas de Pedido
-            </th>
-            <th></th>
-        </tr>
+                @*
+                    <th>
+                        Linea Pedido ID
+                    </th>
+                *@
+                <th>
+                    Pieza
+                </th>
+                <th>
+                    Cant. Piezas
+                </th>
+                <th>
+                    Servicio
+                </th>
+                <th>
+                    Cant. Servicio
+                </th>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Notas de Pedido
+                </th>
+                <th></th>
+            </tr>
 
-        @foreach (var item in Model.OrderBody)
-        {
-            using (Html.BeginForm("DeleteOrderByID", "Order", new { id = item.OrderId /* id=item.PrimaryKey */ }))
+            @foreach (var item in Model.OrderBody)
             {
-                <tr>
+                using (Html.BeginForm("DeleteOrderByID", "Order", new { id = item.OrderId /* id=item.PrimaryKey */ }))
+                {
+                    <tr>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LineNo)
-                    </td>
-                    @*
                         <td>
-                            <a onclick="location.href = '@(Url.Action("OrderDetails", "Order", new { id = item.OrderId }))'">
-                                @Html.DisplayFor(modelItem => item.OrderLineId)
-                            </a>
+                            @Html.DisplayFor(modelItem => item.LineNo)
                         </td>
-                    *@
+                        @*
+                            <td>
+                                <a onclick="location.href = '@(Url.Action("OrderDetails", "Order", new { id = item.OrderId }))'">
+                                    @Html.DisplayFor(modelItem => item.OrderLineId)
+                                </a>
+                            </td>
+                        *@
                     <td>
-                        @Html.DisplayFor(modelItem => item.PartName)
+                        <a onclick="location.href = '@(Url.Action("PartDetails", "Part", new { id = item.PartId }))'">
+                            @Html.DisplayFor(modelItem => item.PartName)
+                        </a>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PartQty)
+                            @Html.DisplayFor(modelItem => item.PartQty)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ServiceName)
+                        <a onclick="location.href = '@(Url.Action("SeviceDetails", "Service", new { id = item.ServiceId }))'">
+                            @Html.DisplayFor(modelItem => item.ServiceName)
+                        </a>
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ServiceQty)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LineDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.OrderNotes)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Editar", "UpdateLine", new { id = item.OrderLineId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
-                        
-                        <input class="btn btn-danger" type="submit" value="Borrar"
-                               onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderLineId LineNo: @item.LineNo');" />
-                    </td>
-                </tr>
-            }
-        }
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ServiceQty)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LineDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderNotes)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "UpdateLine", new { id = item.OrderLineId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
 
-    </table>
-    <br/>
-    @Html.ActionLink("Agregar Nueva Linea De Pedido", "CreateLine", new { id = Model.OrderHeading.OrderId}, new { @class = "btn btn-success btn-large" })
-    <br />
-    <br/>
-    <br/>
-    @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
-</div>
+                            <input class="btn btn-danger" type="submit" value="Borrar"
+                                   onclick="return confirm('Are you sure you want to delete record with ID = @item.OrderLineId LineNo: @item.LineNo');" />
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+        <br />
+        @Html.ActionLink("Agregar Nueva Linea De Pedido", "CreateLine", new { id = Model.OrderHeading.OrderId }, new { @class = "btn btn-success btn-large" })
+        <br />
+        <br />
+        <br />
+        @Html.ActionLink("Lista De Pedidos", "OrderList", null, new { @class = "btn btn-primary btn-large" })
+    </div>
