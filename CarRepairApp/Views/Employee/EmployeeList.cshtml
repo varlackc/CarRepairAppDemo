@@ -8,75 +8,86 @@
 <br />
 <br />
 
-<h2>Lista De Empleados</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Empleado ID
-        </th>
-        <th>
-            Nombre De Usuario
-        </th>
-        <th>
-            Nombre
-        </th>
-        <th>
-           Apellido
-        </th>
-        <th>
-            Ubicación
-        </th>
-        <th>
-            Teléfono
-        </th>
-        <th>
-            Estado
-        </th>
-        <th></th>
-    </tr>
+<div class="content-head content-title">
+    <br />
+    <h2><i class="fa fa-id-badge" aria-hidden="true"></i> Lista De Empleados</h2>
+    <br />
+</div>
 
-    @foreach (var item in Model)
-    {
-        using (Html.BeginForm("DeleteEmployeeByID", "Employee", new { id = item.EmployeeId /* id=item.PrimaryKey */ }))
+    <table class="table">
+        <tr class="content-body">
+            <th>
+                    Empleado ID
+            </th>
+            <th>
+                Nombre De Usuario
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Ubicación
+            </th>
+            <th>
+                Teléfono
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmployeeId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Update", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Detalles", "EmployeeDetails", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+            using (Html.BeginForm("DeleteEmployeeByID", "Employee", new { id = item.EmployeeId /* id=item.PrimaryKey */ }))
+            {
+                <tr>
+                    <td>
 
-                    <input class="btn btn-danger" type="submit" value="Borrar"
-                           onclick="return confirm('Are you sure you want to delete record with ID = @item.EmployeeId Store: @item.FirstName @item.LastName');" />
+                        <a onclick="location.href = '@(Url.Action("EmployeeDetails", "Employee", new { id = item.EmployeeId }))'">
+                            @Html.DisplayFor(modelItem => item.EmployeeId)
+                        </a>
+                    </td>
+                    <td>
 
-                </td>
-            </tr>
+                        <a onclick="location.href = '@(Url.Action("EmployeeDetails", "Employee", new { id = item.EmployeeId }))'">
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Update", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Detalles", "EmployeeDetails", new { id = item.EmployeeId /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" })
+
+                        <input class="btn btn-danger" type="submit" value="Borrar"
+                               onclick="return confirm('Are you sure you want to delete record with ID = @item.EmployeeId Store: @item.FirstName @item.LastName');" />
+
+                    </td>
+                </tr>
+            }
         }
-    }
 
-</table>
+    </table>
 
 
-<p>
-    @Html.ActionLink("Agregar Nuevo Empleado", "Create", null, new { @class = "btn btn-primary btn-large" })
-</p>
+    <p>
+        @Html.ActionLink("Agregar Nuevo Empleado", "Create", null, new { @class = "btn btn-primary btn-large" })
+    </p>
