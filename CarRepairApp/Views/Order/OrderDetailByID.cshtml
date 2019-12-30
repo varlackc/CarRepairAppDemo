@@ -109,11 +109,7 @@
                 <th>
                     No. Linea
                 </th>
-                @*
-                    <th>
-                        Linea Pedido ID
-                    </th>
-                *@
+
                 <th>
                     Pieza
                 </th>
@@ -144,13 +140,6 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.LineNo)
                         </td>
-                        @*
-                            <td>
-                                <a onclick="location.href = '@(Url.Action("OrderDetails", "Order", new { id = item.OrderId }))'">
-                                    @Html.DisplayFor(modelItem => item.OrderLineId)
-                                </a>
-                            </td>
-                        *@
                     <td>
                         <a onclick="location.href = '@(Url.Action("PartDetails", "Part", new { id = item.PartId }))'">
                             @Html.DisplayFor(modelItem => item.PartName)
