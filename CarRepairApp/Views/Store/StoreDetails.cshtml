@@ -8,62 +8,67 @@
 <br />
 <br />
 
-<h2>Detalles DeL Taller</h2>
 
-<div>
+<div class="content-head  content-title">
+    <br />
+    <h2> <i class="fa fa-wrench" aria-hidden="true"></i> Detalles DeL Taller</h2>
     <h4>(Demo) StoreModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @*@Html.DisplayNameFor(model => model.StoreId)*@
-            Taller ID
-
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StoreId)
-        </dd>
-
-        <dt>
-            @* @Html.DisplayNameFor(model => model.StoreName)*@
-            Nombre
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StoreName)
-        </dd>
-
-        <dt>
-            @* @Html.DisplayNameFor(model => model.StoreAddress)*@
-            Ubicación
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StoreAddress)
-        </dd>
-
-        <dt>
-            @* @Html.DisplayNameFor(model => model.PhoneNumber)*@
-            Teléfono
-
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @* @Html.DisplayNameFor(model => model.HoursOfOperation)*@
-            Horas de Operación
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoursOfOperation)
-        </dd>
-
-    </dl>
+    <br />
 </div>
-<p>
-    @Html.ActionLink("Editar", "Update", new { id = Model.StoreId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
-    @Html.ActionLink("Lista De Talleres", "StoreList", null, new { @class = "btn btn-primary btn-large" })
-</p>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal content-body">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.StoreId)*@
+                Taller ID
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StoreId)
+            </dd>
+
+            <dt>
+                @* @Html.DisplayNameFor(model => model.StoreName)*@
+                Nombre
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StoreName)
+            </dd>
+
+            <dt>
+                @* @Html.DisplayNameFor(model => model.StoreAddress)*@
+                Ubicación
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StoreAddress)
+            </dd>
+
+            <dt>
+                @* @Html.DisplayNameFor(model => model.PhoneNumber)*@
+                Teléfono
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @* @Html.DisplayNameFor(model => model.HoursOfOperation)*@
+                Horas de Operación
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoursOfOperation)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Update", new { id = Model.StoreId /* id = Model.PrimaryKey */ }, new { @class = "btn btn-success" })
+        @Html.ActionLink("Lista De Talleres", "StoreList", null, new { @class = "btn btn-primary btn-large" })
+    </p>

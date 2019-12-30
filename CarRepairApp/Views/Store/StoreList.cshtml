@@ -7,14 +7,17 @@
 <br />
 <br />
 <br />
+<br />
 
-<div class="content-head">
+<div class="content-head  content-title">
     <br/>
-<h2>Lista De Talleres De Mecanica</h2>
+    <h2> <i class="fa fa-wrench" aria-hidden="true"></i> Lista De Talleres De Mecanica</h2>
     <br/>
 </div>
+
+<div>
 <table class="table">
-    <tr>
+    <tr class="content-body">
         <th>
             @* @Html.DisplayNameFor(model => model.StoreId)*@
             Taller ID
@@ -44,10 +47,16 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StoreId)
+
+                    <a onclick="location.href = '@(Url.Action("StoreDetails", "Store", new { id = item.StoreId }))'">
+                        @Html.DisplayFor(modelItem => item.StoreId)
+                    </a>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StoreName)
+
+                    <a onclick="location.href = '@(Url.Action("StoreDetails", "Store", new { id = item.StoreId }))'">
+                        @Html.DisplayFor(modelItem => item.StoreName)
+                        </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StoreAddress)
@@ -70,6 +79,7 @@
     }
 
 </table>
+</div>
 
 <p>
     @Html.ActionLink("Agregar Nuevo Taller", "Create", null, new { @class = "btn btn-primary btn-large" })
