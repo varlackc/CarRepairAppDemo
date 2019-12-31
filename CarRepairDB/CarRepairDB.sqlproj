@@ -59,6 +59,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="Publish Profiles\" />
+    <Folder Include="Export" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Order.sql" />
