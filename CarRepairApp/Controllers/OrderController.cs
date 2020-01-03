@@ -33,7 +33,6 @@ namespace CarRepairApp.Controllers
                     Location = row.Location,
                     Status = row.Status,
                     //List < OrderLineModel > OrderLine = new List<OrderLineModel>();
-                
                 });
             }
             return View(orders);
@@ -70,7 +69,6 @@ namespace CarRepairApp.Controllers
                     PartQty = row.PartQty,
                     OrderNotes = row.OrderNotes
                     //List < OrderLineModel > OrderLine = new List<OrderLineModel>();
-
                 });
             }
             return View(orders);
@@ -104,8 +102,6 @@ namespace CarRepairApp.Controllers
                 Status = order.Status,
                 //List<OrderLineModel> OrderBody = orderLineList.Where( c => c.OrderId == order.OrderId ).ToList();
             };
-            
-
             return View(FinalOrder);
         }
 
@@ -181,7 +177,6 @@ namespace CarRepairApp.Controllers
             orderModel.ClientName = resultModel.ClientName;
             orderModel.StoreName = resultModel.StoreName;
             orderModel.EmployeeName = resultModel.EmployeeName;
-
             return View(orderModel);
         }
 
@@ -219,7 +214,6 @@ namespace CarRepairApp.Controllers
             orderModel.PartName = resultModel.PartName;
             orderModel.ServiceName = resultModel.ServiceName;
             //---------------------------------------------
-
             return View(orderModel);
         }
 
