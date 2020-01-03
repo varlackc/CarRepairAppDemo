@@ -39,7 +39,6 @@ namespace CarRepairApp.Controllers
             storeModel.PhoneNumber = data.PhoneNumber;
             storeModel.HoursOfOperation = data.HoursOfOperation;
             return View(storeModel);
-
         }
 
         public ActionResult Create()
