@@ -28,7 +28,6 @@ namespace CarRepairApp.Controllers
                     PartPrice = row.PartPrice,
                     PartSupplier = row.PartSupplier,
                     PartManufacturer = row.PartManufacturer
-                    
                 });
             }
             return View(users);
@@ -38,7 +37,6 @@ namespace CarRepairApp.Controllers
         {
             var data = LoadOnePart(id);
             PartModel partModel = new PartModel(); //convert the results in a way that the view can understand
-
             partModel.PartId = data.PartId;
             partModel.PartName = data.PartName;
             partModel.PartNumber = data.PartNumber;
@@ -47,9 +45,7 @@ namespace CarRepairApp.Controllers
             partModel.PartPrice = data.PartPrice;
             partModel.PartSupplier = data.PartSupplier;
             partModel.PartManufacturer = data.PartManufacturer;
-
             return View(partModel);
-
         }
 
         public ActionResult Create()
@@ -78,7 +74,6 @@ namespace CarRepairApp.Controllers
         {
             var resultModel = LoadOnePart(id); //get the results from the databaase
             PartModel partModel = new PartModel(); //convert the results in a way that the view can understand
-
             partModel.PartId = resultModel.PartId;
             partModel.PartName = resultModel.PartName;
             partModel.PartNumber = resultModel.PartNumber;
@@ -87,7 +82,6 @@ namespace CarRepairApp.Controllers
             partModel.PartPrice = resultModel.PartPrice;
             partModel.PartSupplier = resultModel.PartSupplier;
             partModel.PartManufacturer = resultModel.PartManufacturer;
-
             return View(partModel);
         }
 
