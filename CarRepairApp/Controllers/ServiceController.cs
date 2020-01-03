@@ -40,7 +40,6 @@ namespace CarRepairApp.Controllers
             serviceModel.ServiceDate = data.ServiceDate;
             serviceModel.Status = data.Status;
             serviceModel.ServiceType = data.ServiceType;
-
             return View(serviceModel);
 
         }
