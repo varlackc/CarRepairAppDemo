@@ -45,7 +45,6 @@ namespace CarRepairApp.Controllers
             employeeModel.PhoneNumber = data.PhoneNumber;
             employeeModel.Status = data.Status;
             return View(employeeModel);
-
         }
 
         public ActionResult Create()
