@@ -8,6 +8,7 @@ namespace CarRepairApp.Controllers
 {
     public class StoreController : Controller
     {
+        // Store List
         public ActionResult StoreList()
         {
             var data = LoadStore(); //load the data
