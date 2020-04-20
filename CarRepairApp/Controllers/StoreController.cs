@@ -27,6 +27,7 @@ namespace CarRepairApp.Controllers
             return View(users);
         }
 
+        // Store Details
         public ActionResult StoreDetails(int id)
         {
             var data = LoadOneStore(id);
